@@ -3,7 +3,7 @@ import React, { useState, useRef, useEffect } from "react";
 import { motion } from "framer-motion";
 import { cn } from "@/lib/utils";
 
-export const LayoutGrid = ({ cards }) => {
+export const LayoutGrid = ({ cards, range }) => {
   const [selected, setSelected] = useState();
   const [lastSelected, setLastSelected] = useState();
 
@@ -18,11 +18,15 @@ export const LayoutGrid = ({ cards }) => {
   };
 
   return (
-    <div className="w-full h-full p-10 grid grid-cols-2 md:grid-cols-3  max-w-7xl mx-auto gap-4 ">
+    <div className="w-full h-full p-10 pt-0 grid grid-cols-2 md:grid-cols-3  max-w-7xl mx-auto gap-4 ">
       {cards.map((card, i) => (
         <div
           key={i}
-          className={cn(card.className, "flex justify-center items-center")}
+          className={cn(
+            card.className,
+            "flex justify-center items-center",
+            card.id >= range[0] && card.id <= range[1] ? "" : "hidden"
+          )}
         >
           <motion.div
             onClick={() => handleClick(card)}

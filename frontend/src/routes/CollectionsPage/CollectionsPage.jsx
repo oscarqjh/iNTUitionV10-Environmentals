@@ -4,6 +4,16 @@ import { useEffect, useState } from "react";
 import { clamp } from "@/lib/utils";
 import { LayoutGrid } from "@/components/layout-grid";
 import { cardData } from "@/data/data.jsx";
+import {
+  Pagination,
+  PaginationContent,
+  PaginationEllipsis,
+  PaginationItem,
+  PaginationLink,
+  PaginationNext,
+  PaginationPrevious,
+} from "@/components/ui/pagination";
+import { useLocation } from "react-router-dom";
 
 export default function CollectionsPage() {
   const [initialised, setInitialised] = useState(false);
@@ -13,6 +23,21 @@ export default function CollectionsPage() {
   const [gamma, setGamma] = useState(0);
   const [x, setX] = useState(0);
   const [y, setY] = useState(0);
+  const location = useLocation();
+  const [range, setRange] = useState([]);
+
+  const getRange = (id) => {
+    if (id === "#0") {
+      return [1, 10];
+    } else if (id === "#1") {
+      return [11, 20];
+    }
+    return [21, 30];
+  };
+
+  useEffect(() => {
+    setRange(getRange(location.hash));
+  }, [location]);
 
   useEffect(() => {
     if (!initialised) {
@@ -52,7 +77,7 @@ export default function CollectionsPage() {
       <div className="flex flex-col h-max w-full dark:bg-black bg-white dark:bg-dot-white/[0.2] bg-dot-black/[0.2] relative items-center justify-start">
         {/* Radial gradient for the container to give a faded look */}
         <div className="absolute pointer-events-none inset-0 flex items-center justify-center dark:bg-black bg-white [mask-image:radial-gradient(ellipse_at_center,transparent_20%,black)]"></div>
-
+        <TextGenerateEffect words="Equipped" />
         <CardContainer className="inter-var" animateX={x} animateY={y}>
           <CardBody className="bg-gray-50 relative group/card  dark:hover:shadow-2xl dark:hover:shadow-emerald-500/[0.1] dark:bg-black dark:border-white/[0.2] border-black/[0.1] w-auto sm:w-[30rem] h-auto mx-[15vw] rounded-xl p-6 border  ">
             <CardItem
@@ -95,8 +120,41 @@ export default function CollectionsPage() {
         </CardContainer>
         <TextGenerateEffect words="Collections" />
         <div className="collections-wrapper h-max ">
-          <div className="h-max py-20 w-screen">
-            <LayoutGrid cards={cardData} />
+          <div className="h-max pb-20 w-screen">
+            <LayoutGrid cards={cardData} range={range} />
+            <Pagination>
+              <PaginationContent>
+                <PaginationItem>
+                  <PaginationPrevious
+                    href={`#${
+                      location.hash.split("#")[1] - 1 < 0
+                        ? 2
+                        : (location.hash.split("#")[1] - 1) % 3
+                    }`}
+                  />
+                </PaginationItem>
+                <PaginationItem>
+                  <PaginationLink href="#0" isActive={location.hash === "#0"}>
+                    1
+                  </PaginationLink>
+                </PaginationItem>
+                <PaginationItem>
+                  <PaginationLink href="#1" isActive={location.hash === "#1"}>
+                    2
+                  </PaginationLink>
+                </PaginationItem>
+                <PaginationItem>
+                  <PaginationLink href="#2" isActive={location.hash === "#2"}>
+                    3
+                  </PaginationLink>
+                </PaginationItem>
+                <PaginationItem>
+                  <PaginationNext
+                    href={`#${(location.hash.split("#")[1] + 1) % 3}`}
+                  />
+                </PaginationItem>
+              </PaginationContent>
+            </Pagination>
           </div>
         </div>
       </div>
