@@ -14,6 +14,7 @@ import {
   PaginationPrevious,
 } from "@/components/ui/pagination";
 import { useLocation } from "react-router-dom";
+import LabelBottomNavigation from "@/components/navbar/Navbar";
 
 export default function CollectionsPage() {
   const [initialised, setInitialised] = useState(false);
@@ -27,12 +28,12 @@ export default function CollectionsPage() {
   const [range, setRange] = useState([]);
 
   const getRange = (id) => {
-    if (id === "#0") {
-      return [1, 10];
+    if (id === "#2") {
+      return [21, 30];
     } else if (id === "#1") {
       return [11, 20];
     }
-    return [21, 30];
+    return [1, 10];
   };
 
   useEffect(() => {
@@ -120,7 +121,7 @@ export default function CollectionsPage() {
         </CardContainer>
         <TextGenerateEffect words="Collections" />
         <div className="collections-wrapper h-max ">
-          <div className="h-max pb-20 w-screen">
+          <div className="h-max pb-[15vh] w-screen">
             <LayoutGrid cards={cardData} range={range} />
             <Pagination>
               <PaginationContent>
@@ -158,6 +159,7 @@ export default function CollectionsPage() {
           </div>
         </div>
       </div>
+      <LabelBottomNavigation />
     </>
   );
 }

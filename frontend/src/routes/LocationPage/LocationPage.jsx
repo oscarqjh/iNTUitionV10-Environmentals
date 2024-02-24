@@ -1,12 +1,11 @@
-import React from 'react';
-import { GoogleMap, useLoadScript, Marker } from '@react-google-maps/api';
+import React from "react";
+import { GoogleMap, useLoadScript, Marker } from "@react-google-maps/api";
+import LabelBottomNavigation from "@/components/navbar/Navbar";
 
-
-
-const libraries = ['places'];
+const libraries = ["places"];
 const mapContainerStyle = {
-  width: '100vw',
-  height: '100vh',
+  width: "100vw",
+  height: "100vh",
 };
 const center = {
   lat: 7.2905715, // default latitude
@@ -15,7 +14,7 @@ const center = {
 
 const LocationPage = () => {
   const { isLoaded, loadError } = useLoadScript({
-    googleMapsApiKey: 'AIzaSyAvNO-dnwhqWYX0R9yXtKIZfjcqPQowwnc',
+    googleMapsApiKey: "AIzaSyAvNO-dnwhqWYX0R9yXtKIZfjcqPQowwnc",
     libraries,
   });
 
@@ -27,8 +26,6 @@ const LocationPage = () => {
     return <div>Loading maps</div>;
   }
 
-  
-
   return (
     <div>
       <GoogleMap
@@ -38,9 +35,9 @@ const LocationPage = () => {
       >
         <Marker position={center} />
       </GoogleMap>
+      <LabelBottomNavigation />
     </div>
   );
 };
-
 
 export default LocationPage;
