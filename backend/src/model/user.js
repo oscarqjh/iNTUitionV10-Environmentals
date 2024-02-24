@@ -14,9 +14,13 @@ const dataSchema = new mongoose.Schema({
     type: Number,
     default: 0,
   },
-  profilePictureUrl: {
+  totalBottlesRecycled: {
+    type: Number,
+    default: 0,
+  },
+  equippedEnvironmental: {
     type: String,
-    default: "",
+    default: "-1",
   },
   createdAt: {
     type: Date,

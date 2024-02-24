@@ -6,13 +6,19 @@ const UsersRouter = express.Router();
 
 UsersRouter.get("/getAllUsers", usersController.getAllUsers);
 
+UsersRouter.get("/getUserByEmail", usersController.getUserByEmail);
+
 UsersRouter.post("/addUsers", usersController.createUser);
 
-UsersRouter.post("/userChangeAvatar", usersController.changeProfilePicture);
+UsersRouter.post("/userChangeEnvironmental", usersController.changeEquippedEnvironmental);
 
 UsersRouter.post("/updateEnvironmentalsCollections", usersController.updateEnvironmentalsCollections);
 
 UsersRouter.get("/:id/EnvironmentalsCollections", usersController.getEnvironmentalsCollections);
+
+// Discontinued
+// UsersRouter.get("/getTotalBottles", usersController.getTotalBottles);
+// UsersRouter.get("/getTotalLevels", usersController.getTotalLevels);
 
 //test Method
 UsersRouter.get("/test", (req, res) => {
