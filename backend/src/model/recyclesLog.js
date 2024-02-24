@@ -29,6 +29,10 @@ const dataSchema = new mongoose.Schema({
     required: true,
     type: Number,
   },
+  createdAt: {
+    type: Date,
+    default: Date.now,
+  },
 });
 
 const RecyclesLog = mongoose.model("RecyclesLog", dataSchema);

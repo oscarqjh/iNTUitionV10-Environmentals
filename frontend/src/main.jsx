@@ -13,6 +13,8 @@ import ProtectedLayout from "./layouts/ProtectedLayout.jsx";
 import HomePage from "./routes/HomePage/HomePage.jsx";
 import ErrorPage from "./routes/ErrorPage/ErrorPage.jsx";
 import CollectionsPage from "./routes/CollectionsPage/CollectionsPage";
+import LocationPage from "./routes/LocationPage/LocationPage";
+import GachaPage from "./routes/GachaPage/GachaPage";
 
 const router = createBrowserRouter([
   {
@@ -34,6 +36,14 @@ const router = createBrowserRouter([
           {
             path: "/collections",
             element: <CollectionsPage />,
+          },
+          {
+            path: "/location",
+            element: <LocationPage />,
+          },
+          {
+            path: "/redeem",
+            element: <GachaPage />,
           },
         ],
       },

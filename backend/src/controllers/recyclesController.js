@@ -1,68 +1,36 @@
 import express from "express";
-import { Recycles } from "../model/recyclesLog.js.js";
+import { RecyclesLog } from "../model/recyclesLog.js";
+import { addEnvironmentalsXP } from "./environmentalsController.js"
 
-const createUser = async (req, res) => {
-    const newUser = new User({
-      userName: req.body.userName,
-      userEmail: req.body.element,
+
+const addRecycleLog = (req, res) => {
+
+    const newRecycleLog = new RecyclesLog({
+      userId: req.body.userId,
+      environmentalId: req.body.environmentalId,
+      locationId: req.body.locationId,
+      recycleCompany: req.body.recycleCompany,
+      recycleType: req.body.recycleType,
+      recycleAmount: req.body.recycleAmount,
+      experienceEarned: req.body.experienceEarned,
     });
-    
-    try {
-        await newUser
-            .save()
-            .then((result) => {
-                res.send(result);
-            })
-            .catch((err) => {
-                console.log(err);
-                res.send(err.message);
-            });
-    } catch (err) {
-        console.log(err);
-        res.send(err.message);
-    }
-};
-
-
-const changeProfilePicture = async (req, res) => {
-    try {
-        const result = User.updateOne(
-        { userId: req.body.userId},
-        { profilePictureUrl: req.body.newProfilePicture }
-        );
+  
+    newRecycleLog
+      .save()
+      .then((result) => {
+        // If save successful update experience of Environmentals
+        addEnvironmentalsXP(req.body.environmentalId, req.body.experienceEarned);
         res.send(result);
-    } catch (err) {
+      })
+      .catch((err) => {
         console.log(err);
         res.send(err.message);
-    }
+      });
 };
 
-const updateElementalsCollections = (req, res) => {
-    try {
-      const result = User.update(
-        { userId: req.body.userId ,
-        "collections.environmentalDefaultId" : req.body.environmentalDefaultId }, // Double check the filter for environmentalId if correct
-        { $inc: { "collections.$.count": 1 } } // Double check if this updates correctly
-      );
-    } catch (err) {
-      console.log(err);
-      res.send(err.message);
-    }
-  };
 
-const getAllUsers = (req, res) => {
-    User.find()
-        .then((found) => {
-        res.send(found);
-        })
-        .catch((err) => {
-        console.log(err);
-        res.send(err.message);
-        });
-};
+
 export {
-    createUser,
-    changeProfilePicture,
-    getAllUsers,
+    addRecycleLog,
 
 }

@@ -1,14 +1,26 @@
 import express from "express";
 import { Locations } from "../model/locations.js";
 
-const createUser = async (req, res) => {
-    const newUser = new User({
-      userName: req.body.userName,
-      userEmail: req.body.element,
+const getAllLocations = (req, res) => {
+    Locations.find()
+      .then((found) => {
+        res.send(found);
+        return found;
+      })
+      .catch((err) => {
+        console.log(err);
+        res.send(err.message);
+      });
+  };
+
+const addLocations = (req, res) => {
+    const newLocation = new Locations({
+      locationName: req.body.locationName,
+      address: req.body.address,
     });
     
     try {
-        await newUser
+        newLocation
             .save()
             .then((result) => {
                 res.send(result);
@@ -21,48 +33,10 @@ const createUser = async (req, res) => {
         console.log(err);
         res.send(err.message);
     }
-};
+}
 
 
-const changeProfilePicture = async (req, res) => {
-    try {
-        const result = User.updateOne(
-        { userId: req.body.userId},
-        { profilePictureUrl: req.body.newProfilePicture }
-        );
-        res.send(result);
-    } catch (err) {
-        console.log(err);
-        res.send(err.message);
-    }
-};
-
-const updateElementalsCollections = (req, res) => {
-    try {
-      const result = User.update(
-        { userId: req.body.userId ,
-        "collections.environmentalDefaultId" : req.body.environmentalDefaultId }, // Double check the filter for environmentalId if correct
-        { $inc: { "collections.$.count": 1 } } // Double check if this updates correctly
-      );
-    } catch (err) {
-      console.log(err);
-      res.send(err.message);
-    }
-  };
-
-const getAllUsers = (req, res) => {
-    User.find()
-        .then((found) => {
-        res.send(found);
-        })
-        .catch((err) => {
-        console.log(err);
-        res.send(err.message);
-        });
-};
 export {
-    createUser,
-    changeProfilePicture,
-    getAllUsers,
-
+    getAllLocations,
+    addLocations,
 }

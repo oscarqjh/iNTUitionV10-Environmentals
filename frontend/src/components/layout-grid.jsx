@@ -2,8 +2,9 @@
 import React, { useState, useRef, useEffect } from "react";
 import { motion } from "framer-motion";
 import { cn } from "@/lib/utils";
+import SkeletonOne from "./SkeletonOne";
 
-export const LayoutGrid = ({ cards }) => {
+export const LayoutGrid = ({ cards, range, userCollections }) => {
   const [selected, setSelected] = useState();
   const [lastSelected, setLastSelected] = useState();
 
@@ -18,11 +19,15 @@ export const LayoutGrid = ({ cards }) => {
   };
 
   return (
-    <div className="w-full h-full p-10 grid grid-cols-2 md:grid-cols-3  max-w-7xl mx-auto gap-4 ">
+    <div className="w-full h-full p-6 pt-0 grid grid-cols-2 md:grid-cols-3  max-w-7xl mx-auto gap-4 ">
       {cards.map((card, i) => (
         <div
           key={i}
-          className={cn(card.className, "flex justify-center items-center")}
+          className={cn(
+            card.className,
+            "flex justify-center items-center",
+            card.id >= range[0] && card.id <= range[1] ? "" : "hidden"
+          )}
         >
           <motion.div
             onClick={() => handleClick(card)}
@@ -33,7 +38,12 @@ export const LayoutGrid = ({ cards }) => {
                 ? "rounded-md cursor-pointer fixed inset-0 h-1/2 w-[80vw] md:w-1/2 m-auto z-50 flex justify-center items-center flex-wrap flex-col"
                 : lastSelected?.id === card.id
                 ? "z-40 bg-white rounded-sm h-[10rem] w-[10rem]"
-                : "bg-white rounded-sm h-[10rem] w-[10rem]"
+                : "bg-white rounded-sm h-[10rem] w-[10rem]",
+              userCollections[card.id - 1]
+                ? userCollections[card.id - 1].count > 0
+                  ? ""
+                  : "grayscale"
+                : ""
             )}
             layout
           >
@@ -96,7 +106,9 @@ const SelectedCard = ({ selected }) => {
         }}
         className="relative px-8 pb-4 z-[70]"
       >
-        {selected?.content}
+        {selected ? (
+          <SkeletonOne element={selected.element} rarity={selected.rarity} />
+        ) : null}
       </motion.div>
     </div>
   );

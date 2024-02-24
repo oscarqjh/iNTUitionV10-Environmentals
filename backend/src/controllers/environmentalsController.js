@@ -1,7 +1,7 @@
 import express from "express";
 import { Environmentals } from "../model/environmentals.js";
 
-const addEnvironmentals = async (req, res) => {
+const addEnvironmentals =  (req, res) => {
     const newEnvironmentals = new Environmentals({
       environmentalName: req.body.environmentalsName,
       element: req.body.element,
@@ -24,7 +24,7 @@ const addEnvironmentals = async (req, res) => {
   };
 
 
-const getEnvironmentalsImgUrl = async (req, res) => {
+const getEnvironmentalsImgUrl = (req, res) => {
     Environmentals.find({ _id: req.params.id})
       .then((found) => {
         res.send(found);
