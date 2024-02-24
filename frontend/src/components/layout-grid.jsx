@@ -19,7 +19,7 @@ export const LayoutGrid = ({ cards, range }) => {
   };
 
   return (
-    <div className="w-full h-full p-10 pt-0 grid grid-cols-2 md:grid-cols-3  max-w-7xl mx-auto gap-4 ">
+    <div className="w-full h-full p-6 pt-0 grid grid-cols-2 md:grid-cols-3  max-w-7xl mx-auto gap-4 ">
       {cards.map((card, i) => (
         <div
           key={i}
