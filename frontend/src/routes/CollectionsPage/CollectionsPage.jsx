@@ -56,7 +56,7 @@ export default function CollectionsPage() {
         <p className="w-[70%] h-[1000px] text-center text-4xl sm:text-7xl font-bold relative z-20 bg-clip-text text-transparent bg-black from-neutral-200 to-neutral-500 py-8">
           g: {gamma}
         </p>
-        <CardContainer className="inter-var">
+        <CardContainer className="inter-var" a={alpha} b={beta} g={gamma}>
           <CardBody className="bg-gray-50 relative group/card  dark:hover:shadow-2xl dark:hover:shadow-emerald-500/[0.1] dark:bg-black dark:border-white/[0.2] border-black/[0.1] w-auto sm:w-[30rem] h-auto rounded-xl p-6 border  ">
             <CardItem
               translateZ="50"
