@@ -35,6 +35,11 @@ const verifyRecycleOtp = async (otp) => {
   return http.post("/otp/verifyRecycleOtp", { recycleOtp: otp });
 };
 
+/**
+ * Update user
+ * @param {object} data
+ * @returns {Promise}
+ */
 const updateUser = async (data) => {
   const newData = {
     email: data.userEmail,
@@ -43,12 +48,17 @@ const updateUser = async (data) => {
   return http.put("/users/updateUser", newData);
 };
 
+const generateRecycleOtp = async (data) => {
+  return http.post("/otp/generateRecycleOtp", data);
+};
+
 const DatabaseAPIService = {
   getAllUsers,
   addUser,
   getByGmail,
   verifyRecycleOtp,
   updateUser,
+  generateRecycleOtp,
 };
 
 export default DatabaseAPIService;
