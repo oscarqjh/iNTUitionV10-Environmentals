@@ -3,10 +3,13 @@ import React, { useState, useRef, useEffect } from "react";
 import { motion } from "framer-motion";
 import { cn } from "@/lib/utils";
 import SkeletonOne from "./SkeletonOne";
+import { useAuth } from "@/hooks/AuthProvider";
+import heartIcon from "/heart.svg";
 
 export const LayoutGrid = ({ cards, range, userCollections }) => {
   const [selected, setSelected] = useState();
   const [lastSelected, setLastSelected] = useState();
+  const { user } = useAuth();
 
   const handleClick = (card) => {
     setLastSelected(selected);
@@ -35,7 +38,7 @@ export const LayoutGrid = ({ cards, range, userCollections }) => {
               card.className,
               "relative overflow-hidden",
               selected?.id === card.id
-                ? "rounded-md cursor-pointer fixed inset-0 h-1/2 w-[80vw] md:w-1/2 m-auto z-50 flex justify-center items-center flex-wrap flex-col"
+                ? "rounded-md cursor-pointer fixed inset-0 h-[80vw] w-[80vw] md:w-1/2 m-auto z-50 flex justify-center items-center flex-wrap flex-col"
                 : lastSelected?.id === card.id
                 ? "z-40 bg-white rounded-sm h-[10rem] w-[10rem]"
                 : "bg-white rounded-sm h-[10rem] w-[10rem]",

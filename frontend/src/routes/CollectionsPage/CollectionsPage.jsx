@@ -92,46 +92,59 @@ export default function CollectionsPage() {
         {/* Radial gradient for the container to give a faded look */}
         <div className="absolute pointer-events-none inset-0 flex items-center justify-center dark:bg-black bg-white [mask-image:radial-gradient(ellipse_at_center,transparent_20%,black)]"></div>
         <TextGenerateEffect words="Equipped" />
-        <CardContainer className="inter-var" animateX={x} animateY={y}>
-          <CardBody className="bg-gray-50 relative group/card  dark:hover:shadow-2xl dark:hover:shadow-emerald-500/[0.1] dark:bg-black dark:border-white/[0.2] border-black/[0.1] w-auto sm:w-[30rem] h-auto mx-[15vw] rounded-xl p-6 border  ">
-            <CardItem
-              translateZ="50"
-              className="text-xl font-bold text-neutral-600 dark:text-white"
-            >
-              Flying Dog
-            </CardItem>
-            <CardItem
-              as="p"
-              translateZ="60"
-              className="text-neutral-500 text-sm max-w-sm mt-2 dark:text-neutral-300"
-            >
-              A flying dog mon
-            </CardItem>
-            <CardItem translateZ="100" className="w-full mt-4">
-              <img
-                src="/mons/earth_common_1.png"
-                className=" rounded-xl group-hover/card:shadow-xl"
-                alt="thumbnail"
-              />
-            </CardItem>
-            <CardItem
-              as="p"
-              translateZ="60"
-              className="text-neutral-500 text-sm max-w-sm mt-2 dark:text-neutral-300"
-            >
-              Level: 10
-            </CardItem>
-            <div className="flex justify-between items-center mt-10">
-              <CardItem
-                translateZ={20}
-                as="button"
-                className="px-4 py-2 rounded-xl bg-black dark:bg-white dark:text-black text-white text-xs font-bold"
-              >
-                Level up
+        {user.equippedEnvironmental === "-1" ? (
+          <CardContainer className="inter-var" animateX={x} animateY={y}>
+            <CardBody className="bg-gray-50 relative group/card  dark:hover:shadow-2xl dark:hover:shadow-emerald-500/[0.1] dark:bg-black dark:border-white/[0.2] border-black/[0.1] w-auto sm:w-[30rem] h-auto mx-[15vw] rounded-xl p-6 border  ">
+              <CardItem translateZ="100" className="w-full mt-4">
+                <div className="flex justify-center items-center placeholder w-[60vw] h-[60vw] max-w-[100%] max-h-[430px] bg-stone-300 rounded-md">
+                  <p>No Environmental equipped</p>
+                </div>
               </CardItem>
-            </div>
-          </CardBody>
-        </CardContainer>
+            </CardBody>
+          </CardContainer>
+        ) : (
+          <CardContainer className="inter-var" animateX={x} animateY={y}>
+            <CardBody className="bg-gray-50 relative group/card  dark:hover:shadow-2xl dark:hover:shadow-emerald-500/[0.1] dark:bg-black dark:border-white/[0.2] border-black/[0.1] w-auto sm:w-[30rem] h-auto mx-[15vw] rounded-xl p-6 border  ">
+              <CardItem
+                translateZ="50"
+                className="text-xl font-bold text-neutral-600 dark:text-white"
+              >
+                Flying Dog
+              </CardItem>
+              <CardItem
+                as="p"
+                translateZ="60"
+                className="text-neutral-500 text-sm max-w-sm mt-2 dark:text-neutral-300"
+              >
+                A flying dog mon
+              </CardItem>
+              <CardItem translateZ="100" className="w-full mt-4">
+                <img
+                  src="/mons/earth_common_1.png"
+                  className=" rounded-xl group-hover/card:shadow-xl"
+                  alt="thumbnail"
+                />
+              </CardItem>
+              <CardItem
+                as="p"
+                translateZ="60"
+                className="text-neutral-500 text-sm max-w-sm mt-2 dark:text-neutral-300"
+              >
+                Level: 10
+              </CardItem>
+              <div className="flex justify-between items-center mt-10">
+                <CardItem
+                  translateZ={20}
+                  as="button"
+                  className="px-4 py-2 rounded-xl bg-black dark:bg-white dark:text-black text-white text-xs font-bold"
+                >
+                  Level up
+                </CardItem>
+              </div>
+            </CardBody>
+          </CardContainer>
+        )}
+
         <TextGenerateEffect words="Collections" />
         <div className="mb-4">Collected {total}/25</div>
         <div className="collections-wrapper h-max ">
