@@ -1,8 +1,9 @@
 import express from "express";
-import { Collectible } from "../model/collectiblesName.js.js";
+import { Collectibles } from "../model/collectiblesName.js";
 
 const createCollectible = async (req, res) => {
-    const newCollectible = new Collectible({
+    const newCollectible = new Collectibles({
+        fileName: req.body.fileName,
         collectibleName: req.body.collectibleName,
         element: req.body.element,
         rarity: req.body.rarity,

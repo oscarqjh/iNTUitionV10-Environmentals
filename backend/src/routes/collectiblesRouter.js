@@ -5,7 +5,7 @@ import * as collectiblesController from "../controllers/collectiblesController.j
 const CollectiblesRouter = express.Router();
 
 
-CollectiblesRouter.post("/addNewCollectible", collectiblesController.createCollectibles);
+CollectiblesRouter.post("/addNewCollectible", collectiblesController.createCollectible);
 
 
 export { CollectiblesRouter };

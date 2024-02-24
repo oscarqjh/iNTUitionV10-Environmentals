@@ -64,8 +64,8 @@ description: Blazetail enjoys roaring flames, feasting on recyclables, and aidin
 filename: fire_common_2
 element: Fire
 rarity: Common
-name: blazasaur
-description: Flametail revels in fiery displays, feasting on recyclables, and aiding in the biodegradation of waste products.
+name: Blazasaur
+description: Blazasaur revels in fiery displays, feasting on recyclables, and aiding in the biodegradation of waste products.
 
 
 filename: fire_common_3
@@ -142,14 +142,14 @@ filename: water_common_2
 element: Water
 rarity: Common
 name: Riverberry
-description: AquaGuard patrols rivers, feasting on organic waste, and safeguards clean water, ensuring a healthy aquatic habitat.
+description: Riverberry patrols rivers, feasting on organic waste, and safeguards clean water, ensuring a healthy aquatic habitat.
 
 
 filename: water_common_3
 element: Water
 rarity: Common
 name: Finguard
-description: AquaShield defends seas from oil dumping, and safeguarding marine life from pollution.
+description: Finguard defends seas from oil dumping, and safeguarding marine life from pollution.
 
 
 filename: water_common_4

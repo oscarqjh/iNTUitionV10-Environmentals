@@ -1,6 +1,10 @@
 import mongoose, { Schema } from "mongoose";
 
 const dataSchema = new mongoose.Schema({
+  fileName: {
+    required: true,
+    type: String,
+  },
   collectibleName: {
     required: true,
     type: String,
