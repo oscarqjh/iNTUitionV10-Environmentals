@@ -94,8 +94,8 @@ export default function CollectionsPage() {
           </CardBody>
         </CardContainer>
         <TextGenerateEffect words="Collections" />
-        <div className="collections-wrapper h-screen ">
-          <div className="h-screen py-20 w-screen">
+        <div className="collections-wrapper h-max ">
+          <div className="h-max py-20 w-screen">
             <LayoutGrid cards={cardData} />
           </div>
         </div>

@@ -5,7 +5,7 @@ const cardData = [
     id: 1,
     content: <SkeletonOne />,
     className: "col-span-1",
-    thumbnail: "/mons/earth_legendary_1.png",
+    thumbnail: "/mons/earth_common_1.png",
   },
   {
     id: 2,
@@ -45,6 +45,18 @@ const cardData = [
   },
   {
     id: 8,
+    content: <SkeletonOne />,
+    className: "col-span-1",
+    thumbnail: "/mons/earth_legendary_1.png",
+  },
+  {
+    id: 9,
+    content: <SkeletonOne />,
+    className: "col-span-1",
+    thumbnail: "/mons/earth_legendary_1.png",
+  },
+  {
+    id: 10,
     content: <SkeletonOne />,
     className: "col-span-1",
     thumbnail: "/mons/earth_legendary_1.png",
