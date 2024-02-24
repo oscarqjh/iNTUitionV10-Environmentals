@@ -1,15 +1,3 @@
-.login-page-wrapper {
-  width: 100%;
-  height: 100vh;
-  display: flex;
-  flex-direction: column;
-  justify-content: start;
-  align-items: center;
-  background-image: url("/LoginBackground.png");
-  background-size: cover;
-  background-repeat: no-repeat;
-}
-
 .login-page-wrapper h1 {
   text-align: center;
   margin-top: 20vh;
@@ -17,12 +5,4 @@
 
 .login-page-wrapper button {
   margin-top: 20vh;
-}
-
-.blur-wrapper {
-  backdrop-filter: blur(5px);
-  display: flex;
-  flex-direction: column;
-  justify-content: start;
-  align-items: center;
 }
