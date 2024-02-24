@@ -49,6 +49,9 @@ const dataSchema = new mongoose.Schema({
       {environmentalDefaultId: 18, count: 0},
       {environmentalDefaultId: 19, count: 0},
       {environmentalDefaultId: 20, count: 0},
+      {environmentalDefaultId: 21, count: 0},
+      {environmentalDefaultId: 22, count: 0},
+      {environmentalDefaultId: 23, count: 0},
     ],
   },
 });
