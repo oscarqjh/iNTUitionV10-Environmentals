@@ -95,7 +95,7 @@ export default function CollectionsPage() {
             </CardItem>
             <CardItem translateZ="100" className="w-full mt-4">
               <img
-                src="/mons/earth_legendary_1.png"
+                src="/mons/earth_common_1.png"
                 className=" rounded-xl group-hover/card:shadow-xl"
                 alt="thumbnail"
               />
