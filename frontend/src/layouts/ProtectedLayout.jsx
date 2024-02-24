@@ -9,9 +9,6 @@ export default function ProtectedLayout() {
   }
 
   return (
-    <>
-      <div>Protected</div>
       <Outlet />
-    </>
   );
 }
