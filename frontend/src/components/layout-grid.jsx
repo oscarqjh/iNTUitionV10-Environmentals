@@ -4,7 +4,7 @@ import { motion } from "framer-motion";
 import { cn } from "@/lib/utils";
 import SkeletonOne from "./SkeletonOne";
 
-export const LayoutGrid = ({ cards, range }) => {
+export const LayoutGrid = ({ cards, range, userCollections }) => {
   const [selected, setSelected] = useState();
   const [lastSelected, setLastSelected] = useState();
 
@@ -39,7 +39,11 @@ export const LayoutGrid = ({ cards, range }) => {
                 : lastSelected?.id === card.id
                 ? "z-40 bg-white rounded-sm h-[10rem] w-[10rem]"
                 : "bg-white rounded-sm h-[10rem] w-[10rem]",
-              "grayscale"
+              userCollections[card.id - 1]
+                ? userCollections[card.id - 1].count > 0
+                  ? ""
+                  : "grayscale"
+                : ""
             )}
             layout
           >

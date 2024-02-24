@@ -15,6 +15,7 @@ import {
 } from "@/components/ui/pagination";
 import { useLocation } from "react-router-dom";
 import LabelBottomNavigation from "@/components/navbar/Navbar";
+import { useAuth } from "@/hooks/AuthProvider";
 
 export default function CollectionsPage() {
   const [initialised, setInitialised] = useState(false);
@@ -26,6 +27,7 @@ export default function CollectionsPage() {
   const [y, setY] = useState(0);
   const location = useLocation();
   const [range, setRange] = useState([]);
+  const { user } = useAuth();
 
   const getRange = (id) => {
     if (id === "#2") {
@@ -122,7 +124,11 @@ export default function CollectionsPage() {
         <TextGenerateEffect words="Collections" />
         <div className="collections-wrapper h-max ">
           <div className="h-max pb-[15vh] w-screen">
-            <LayoutGrid cards={cardData} range={range} />
+            <LayoutGrid
+              cards={cardData}
+              range={range}
+              userCollections={user.collections}
+            />
             <Pagination>
               <PaginationContent>
                 <PaginationItem>
