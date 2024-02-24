@@ -15,7 +15,7 @@ const app = express();
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(express.json());
-
+app.use(cors(corsOptions));
 // Routes
 app.use("/environmentals", EnvironmentalsRouter);
 app.use("/locations", LocationsRouter);
@@ -26,16 +26,16 @@ app.use("/collectibles", CollectiblesRouter);
 
 ///////////////////////////////////////////////// cors set-up //////////////////////////////////////////////////
 var corsOptions = {
-  origin: "https://environmentals.vercel.app",
-  credentials: true,
+  origin: "*",
+  credentials: false,
   optionsSuccessStatus: 200,
   headers: {
-    "Access-Control-Allow-Origin": "https://environmentals.vercel.app", // Allow CORS from any origin
+    "Access-Control-Allow-Origin": "*", // Allow CORS from any origin
     "Access-Control-Allow-Methods": "GET, HEAD, POST, PUT, DELETE, OPTIONS", // Allow all HTTP methods
     "Access-Control-Allow-Headers": "*", // Allow specified headers
   },
 };
-app.use(cors(corsOptions));
+
 //////////////////////////////////////////////////  mongoDB ///////////////////////////////////////////////////
 const mongoURLString = process.env.DATABASE_URL;
 
