@@ -1,11 +1,11 @@
 import mongoose, { Schema } from "mongoose";
 
 const dataSchema = new mongoose.Schema({
-  recycleId: {
+  userId: {
     required: true,
     type: String,
   },
-  userId: {
+  environmentalId: {
     required: true,
     type: String,
   },
@@ -31,6 +31,6 @@ const dataSchema = new mongoose.Schema({
   },
 });
 
-const Recycles = mongoose.model("Recycles", dataSchema);
+const RecyclesLog = mongoose.model("RecyclesLog", dataSchema);
 
-export { Recycles };
+export { RecyclesLog };
