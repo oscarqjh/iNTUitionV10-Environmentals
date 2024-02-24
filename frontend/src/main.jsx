@@ -15,6 +15,7 @@ import ErrorPage from "./routes/ErrorPage/ErrorPage.jsx";
 import CollectionsPage from "./routes/CollectionsPage/CollectionsPage";
 import LocationPage from "./routes/LocationPage/LocationPage";
 import GachaPage from "./routes/GachaPage/GachaPage";
+import VendingPage from "./routes/VendingPage/VendingPage";
 
 const router = createBrowserRouter([
   {
@@ -24,7 +25,10 @@ const router = createBrowserRouter([
     children: [
       {
         element: <PublicLayout />,
-        children: [{ index: true, element: <LoginPage /> }],
+        children: [
+          { index: true, element: <LoginPage /> },
+          { path: "/vending", element: <VendingPage /> },
+        ],
       },
       {
         element: <ProtectedLayout />,
