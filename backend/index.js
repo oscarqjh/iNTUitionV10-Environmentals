@@ -24,11 +24,11 @@ app.use("/users", UsersRouter);
 
 ///////////////////////////////////////////////// cors set-up //////////////////////////////////////////////////
 var corsOptions = {
-  origin: "https://environmentals-be.vercel.app",
+  origin: "https://environmentals.vercel.app",
   credentials: true,
   optionsSuccessStatus: 200,
   headers: {
-    "Access-Control-Allow-Origin": "https://environmentals-be.vercel.app", // Allow CORS from any origin
+    "Access-Control-Allow-Origin": "https://environmentals.vercel.app", // Allow CORS from any origin
     "Access-Control-Allow-Methods": "GET, HEAD, POST, PUT, DELETE, OPTIONS", // Allow all HTTP methods
     "Access-Control-Allow-Headers": "*", // Allow specified headers
   },
