@@ -2,6 +2,7 @@ import { useGoogleLogin } from "@react-oauth/google";
 import { useAuth } from "../../hooks/AuthProvider";
 import "./LoginPage.css";
 import GoogleAPIService from "../../api/services/GoogleAPIService";
+
 export default function LoginPage() {
   const { user, login, logout } = useAuth();
 
@@ -20,10 +21,11 @@ export default function LoginPage() {
   });
 
   return (
-    <div>
-      <h1>Login</h1>
-      <p>Login content</p>
-      <button onClick={googleLogin}>Login with Google</button>
-    </div>
+    <>
+      <div className="login-page-wrapper">
+        <h1>Welcome to Environmentals</h1>
+        <button onClick={googleLogin}>Login with Google</button>
+      </div>
+    </>
   );
 }
