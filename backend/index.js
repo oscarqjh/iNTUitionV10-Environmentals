@@ -8,6 +8,7 @@ import { LocationsRouter } from "./routes/locationsRouter.js";
 import { RecycleOtpRouter } from "./routes/recycleOtpRouter.js";
 import { RecyclesRouter } from "./routes/recyclesRouter.js";
 import { UsersRouter } from "./routes/usersRouter.js";
+import { CollectiblesRouter } from "./routes/collectiblesRouter.js";
 
 ///////////////////////////////////////////////// app set-up //////////////////////////////////////////////////
 const app = express();
