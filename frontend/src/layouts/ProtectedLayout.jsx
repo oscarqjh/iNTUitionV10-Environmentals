@@ -9,15 +9,8 @@ export default function ProtectedLayout() {
     return <Navigate to="/" />;
   }
 
-  const handleFetchUser = async () => {
-    const response = await DatabaseAPIService.getAllUsers();
-    setUser(response.data[0]);
-    console.log(response.data[0]);
-  };
-
   return (
     <>
-      <button onClick={handleFetchUser}>FetchUser</button>
       <Outlet />
     </>
   );
