@@ -2,7 +2,7 @@ import axios from "axios";
 
 export default axios.create({
   baseURL: import.meta.env.PROD
-    ? "https://environmentals-be.vercel.app/"
+    ? "https://environmentals-be.vercel.app"
     : "http://localhost:3000",
 
   credentials: true,
