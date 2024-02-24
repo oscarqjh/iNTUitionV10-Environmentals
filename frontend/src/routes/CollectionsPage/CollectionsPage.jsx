@@ -1,6 +1,7 @@
 import { TextGenerateEffect } from "@/components/text-generate-effect";
 import { CardBody, CardContainer, CardItem } from "@/components/3d-card";
 import { useEffect, useState } from "react";
+import { clamp } from "framer-motion";
 
 export default function CollectionsPage() {
   const [initialised, setInitialised] = useState(false);

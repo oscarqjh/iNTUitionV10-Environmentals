@@ -16,6 +16,8 @@ export const CardContainer = ({ children, className, containerClassName }) => {
   const containerRef = useRef(null);
   const [isMouseEntered, setIsMouseEntered] = useState(false);
   const [initialised, setInitialised] = useState(false);
+  const [x, setX] = useState(0);
+  const [y, setY] = useState(0);
 
   useEffect(() => {
     function handleOrientation(event) {
@@ -39,7 +41,9 @@ export const CardContainer = ({ children, className, containerClassName }) => {
 
       const x = clamp(Math.floor(gamma), -10, 10);
       const y = clamp(Math.floor(beta - 45), -10, 10);
-      containerRef.current.style.transform = `rotateY(${x}deg) rotateX(${y}deg)`;
+      setX(x);
+      setY(y);
+      // containerRef.current.style.transform = `rotateY(${x}deg) rotateX(${y}deg)`;
     }
     if (!initialised) {
       setInitialised(true);
@@ -50,6 +54,11 @@ export const CardContainer = ({ children, className, containerClassName }) => {
       window.removeEventListener("deviceorientation", handleOrientation, true);
     };
   }, []);
+
+  useEffect(() => {
+    if (!containerRef.current) return;
+    containerRef.current.style.transform = `rotateY(${x}deg) rotateX(${y}deg)`;
+  }, [x, y]);
 
   const handleMouseMove = (e) => {
     if (!containerRef.current) return;
