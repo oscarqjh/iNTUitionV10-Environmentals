@@ -3,6 +3,10 @@ import * as usersController from "../controllers/usersController.js";
 
 const UsersRouter = express.Router();
 
+UsersRouter.get("/test", (req, res) => {
+  res.send("test");
+});
+
 UsersRouter.get("/getAllUsers", usersController.getAllUsers);
 
 UsersRouter.get("/getUserByEmail/:email", usersController.getUserByEmail);
@@ -11,7 +15,10 @@ UsersRouter.post("/addUsers", usersController.createUser);
 
 UsersRouter.put("/updateUser", usersController.updateUser);
 
-UsersRouter.post("/userChangeEnvironmental", usersController.changeEquippedEnvironmental);
+UsersRouter.post(
+  "/userChangeEnvironmental",
+  usersController.changeEquippedEnvironmental
+);
 
 UsersRouter.post(
   "/updateEnvironmentalsCollections",

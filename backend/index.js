@@ -24,11 +24,11 @@ app.use("/users", UsersRouter);
 
 ///////////////////////////////////////////////// cors set-up //////////////////////////////////////////////////
 var corsOptions = {
-  origin: "http://localhost:5173",
+  origin: "*",
   credentials: true,
   optionsSuccessStatus: 200,
   headers: {
-    "Access-Control-Allow-Origin": "http://localhost:5173", // Allow CORS from any origin
+    "Access-Control-Allow-Origin": "*", // Allow CORS from any origin
     "Access-Control-Allow-Methods": "GET, HEAD, POST, PUT, DELETE, OPTIONS", // Allow all HTTP methods
     "Access-Control-Allow-Headers": "*", // Allow specified headers
   },
@@ -64,3 +64,5 @@ const database = mongoose.connection;
 database.on("error", (error) => {
   console.log(error);
 });
+
+export default app;
