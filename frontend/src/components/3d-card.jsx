@@ -33,10 +33,8 @@ export const CardContainer = ({
   };
 
   useEffect(() => {
-    if (isMobileTablet()) {
-      requestRef.current = requestAnimationFrame(animate);
-      return () => cancelAnimationFrame(requestRef.current);
-    }
+    requestRef.current = requestAnimationFrame(animate);
+    return () => cancelAnimationFrame(requestRef.current);
   }, []);
 
   useEffect(() => {
