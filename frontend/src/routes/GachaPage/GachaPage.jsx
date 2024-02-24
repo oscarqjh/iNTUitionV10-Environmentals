@@ -9,7 +9,7 @@ import { DialogOtp } from "@/components/otp-pop-up";
 import { useState } from "react";
 import ticketIcon from "/ticket.svg";
 import DatabaseAPIService from "@/api/services/DatabaseAPIService";
-
+import { cardData } from "@/data/data";
 
 export default function GachaPage() {
   const [otp, setOtp] = useState("");
@@ -38,6 +38,45 @@ export default function GachaPage() {
       console.error("Error in handleVerifyOtp", error);
     }
   }
+  const test = () => {
+    console.log("Test")
+  }
+  const generateRandomRarity = () =>{
+    console.log("Start")
+    const rarity = {
+      "common": 0.7,
+      "threatened": 0.25,
+      "endangered": 0.05
+    }
+    console.log("Start")
+    const rarities = Object.keys(rarity)
+    console.log(rarities)
+    // Calculate the total sum of probabilities
+    const totalProbability = rarities.reduce((acc, key) => acc + rarity[key], 0);
+    console.log("reduced ")
+    // Generate a random number between 0 and the total sum
+    const randomNum = Math.random() * totalProbability;
+  
+    // Iterate through rarities to find the winner
+    let cumulativeProbability = 0;
+    let chosenRarity;
+    for (let i = 0; i < rarities.length; i++) {
+      cumulativeProbability += rarity[rarities[i]];
+      if (randomNum <= cumulativeProbability) {
+        chosenRarity = rarities[i]; // Return the selected rarity
+      }
+    }
+    console.log("Filtering " + chosenRarity)
+    const array = cardData.filter(item => item[rarity] === chosenRarity);
+    const randomIndex = Math.floor(Math.random() * array.length);
+
+    console.log(array[randomIndex] + " has been selected!")
+    return array[randomIndex];
+    
+    // This should not be reached, but in case of unexpected issues, return null
+  }
+  
+  
 
   return (
     <>
@@ -57,7 +96,7 @@ export default function GachaPage() {
             <div className="pl-2">x 1</div>
           </div>
 
-          <Button className="mt-4">Open Pack</Button>
+          <Button className="mt-4" onClick={test}>Open Pack</Button>
         </div>
 
         <Separator className="my-8 w-[70vw]" />
