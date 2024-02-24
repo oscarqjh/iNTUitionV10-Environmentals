@@ -7,6 +7,7 @@ import { Separator } from "@/components/ui/separator";
 import { useState } from "react";
 import ticketIcon from "/ticket.svg";
 
+
 export default function GachaPage() {
   const [otp, setOtp] = useState("");
   return (

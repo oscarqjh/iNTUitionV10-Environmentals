@@ -17,6 +17,7 @@ const addUser = (data) => {
   return http.post("/users/addUsers", data);
 };
 
+
 const DatabaseAPIService = {
   getAllUsers,
   addUser,
