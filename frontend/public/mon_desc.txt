@@ -1,0 +1,173 @@
+filename: earth_common_1
+element: Earth
+rarity: Common
+name: Recyclibee
+description: Recyclibee thrives on recycling, feasting on plastic bottles and cardboard, spreading joy with its colorful wings.
+
+
+filename: earth_common_2
+element: Earth
+rarity: Common
+name: Rockabbit
+description: Rockabbit loves nibbling on recyclable materials, blending into its rocky surroundings with a charming smile.
+
+
+filename: earth_common_3
+element: Earth
+rarity: Common
+name: Foresthorn
+description: Foresthorn roams the enchanted woods, delighting in the tranquility of nature and the company of friendly critters.
+
+
+filename: earth_common_4
+element: Earth
+rarity: Common
+name: Ecobuzz
+description: Ecobuzz enjoys fluttering among flowers, feasting on plastic containers, and spreading eco-friendly joy with its colorful wings.
+
+
+filename: earth_common_5
+element: Earth
+rarity: Common
+name: Stonewing
+description: Stonewing guards its rocky lair, enjoying bio-degradable plastics and protecting its eco-friendly habitat with sturdy armor.
+
+
+filename: earth_threatened_1
+element: Earth
+rarity: Threatened
+name: Pinkpaw
+description: Pinkpaw enjoys picnics in the meadow, munching on recyclables, and spreading joy with its cuddly presence.
+
+
+filename: fairy_threatened_1
+element: Fairy
+rarity: Threatened
+name: Shellwing
+description: Shellwing loves fluttering in moonlit skies, feasting on recyclables, and enchanting all with its magical wings.
+
+
+filename: fairy_threatened_2
+element: Fairy
+rarity: Threatened
+name: Starfluff
+description: Starfluff adores stargazing, and spreading magic with its celestial presence.
+
+
+filename: fire_common_1
+element: Fire
+rarity: Common
+name: Blazetail
+description: Blazetail enjoys roaring flames, feasting on recyclables, and aiding in the biodegradation of waste products.
+
+
+filename: fire_common_2
+element: Fire
+rarity: Common
+name: blazasaur
+description: Flametail revels in fiery displays, feasting on recyclables, and aiding in the biodegradation of waste products.
+
+
+filename: fire_common_3
+element: Fire
+rarity: Common
+name: Emberrest
+description: Emberrest naps serenely amid fiery chaos, feasting on recyclables, and aiding in waste biodegradation with warmth.
+
+
+filename: fire_common_4
+element: Fire
+rarity: Common
+name: Flamewing
+description: Flamewing radiates warmth, and loves to aid in waste biodegradation. Flamewing is fiesty, fun and a loyal friend.
+
+
+filename: fire_threatened_1
+element: Fire
+rarity: Threatened
+name: Blazehoof
+description: Blazehoof radiates fiery majesty, deterring polluters and litterers, crucial for preservation.
+
+
+filename: fire_threatened_2
+element: Fire
+rarity: Threatened
+name: Emberfox
+description: Emberfox prowls with fiery grace, feasting on hard plastics, aiding in biodegradation, essential for conservation.
+
+
+filename: flying_threatened_1
+element: Flying
+rarity: Threatened
+name: Skylark
+description: Skylark soars with grace, absorbing micro-pollutants and purifying the air, and enjoys flying through mountain ranges.
+
+
+
+filename: flying_threatened_2
+element: Flying
+rarity: Threatened
+name: AeroSweep
+description: AeroSweep soars to clean air pollution and its majestic wings purifies the skies with a touch of grace.
+
+filename: ice_common_1
+element: Ice
+rarity: Common
+name: Frostlash
+description: Frostlash enjoys gliding on icy trails, reflecting sunlight into the atmosphere, and purifying the air with its frosty aura.
+
+
+filename: ice_common_2
+element: Ice
+rarity: Common
+name: Frostpaw
+description: Frostpaw frolics in snowy landscapes, protecting glaciers from waste and polluters, and cooling the air with its icy breath.
+
+
+filename: normal_common_1
+element: Normal
+rarity: Common
+name: Tidepaw
+description: Tidepaw loves beachcombing and spreading joy with its carefree spirit. Tidepaw gets sad when the beaches become littered with plastic waste and human trash. 
+
+
+filename: water_common_1
+element: Water
+rarity: Common
+name: Wavecleanser
+description: Wavecleanser diligently removes ocean debris, feasting on plastic bags, and ensuring a cleaner marine environment.
+
+
+filename: water_common_2
+element: Water
+rarity: Common
+name: Riverberry
+description: AquaGuard patrols rivers, feasting on organic waste, and safeguards clean water, ensuring a healthy aquatic habitat.
+
+
+filename: water_common_3
+element: Water
+rarity: Common
+name: Finguard
+description: AquaShield defends seas from oil dumping, and safeguarding marine life from pollution.
+
+
+filename: water_common_4
+element: Water
+rarity: Common
+name: Coralfluff
+description: Coralfluff, a common water creature, aids in sea bed clean up with its fluffy fins, resembling a playful guardian of the ocean.
+
+
+filename: water_threatened_1
+element: Water
+rarity: Threatened
+name: Seastreamer
+description: Seastreamer, a threatened water creature, champions marine life protection with its might and majesty, symbolizing hope for endangered ocean dwellers.
+
+
+filename: water_threatened_2
+element: Water
+rarity: Threatened
+name: Spaddlefin
+description: Spaddlefin, a whimsical water guardian, patrols the seas with a shell full of love, safeguarding marine neighbors with a splash of joy and determination.
