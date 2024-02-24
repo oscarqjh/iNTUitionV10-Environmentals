@@ -1,16 +1,20 @@
 import mongoose, { Schema } from "mongoose";
 
 const dataSchema = new mongoose.Schema({
-  company_name: {
+  location_id: {
     required: true,
     type: String,
   },
-  company_email: {
+  location_name: {
+    required: true,
+    type: String,
+  },
+  address: {
     required: true,
     type: String,
   },
 });
 
-const Company = mongoose.model("Company", dataSchema);
+const Location = mongoose.model("Location", dataSchema);
 
-export { Company };
+export { Location };
