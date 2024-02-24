@@ -14,7 +14,7 @@ const app = express();
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(express.json());
-// app.use(cors(corsOptions));
+app.use(cors(corsOptions));
 // Routes
 app.use("/environmentals", EnvironmentalsRouter);
 app.use("/locations", LocationsRouter);
@@ -24,11 +24,11 @@ app.use("/users", UsersRouter);
 
 ///////////////////////////////////////////////// cors set-up //////////////////////////////////////////////////
 var corsOptions = {
-  origin: "*",
+  origin: "https://environmentals-be.vercel.app",
   credentials: true,
   optionsSuccessStatus: 200,
   headers: {
-    "Access-Control-Allow-Origin": "*", // Allow CORS from any origin
+    "Access-Control-Allow-Origin": "https://environmentals-be.vercel.app", // Allow CORS from any origin
     "Access-Control-Allow-Methods": "GET, HEAD, POST, PUT, DELETE, OPTIONS", // Allow all HTTP methods
     "Access-Control-Allow-Headers": "*", // Allow specified headers
   },
