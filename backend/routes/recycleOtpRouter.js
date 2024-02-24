@@ -3,12 +3,15 @@ import * as recyclesOtpController from "../controllers/recyclesOtpController.js"
 
 const RecycleOtpRouter = express.Router();
 
+RecycleOtpRouter.post(
+  "/generateRecycleOtp",
+  recyclesOtpController.generateRecycleOtp
+);
 
-
-RecycleOtpRouter.post("/generateRecycleOtp", recyclesOtpController.generateRecycleOtp);
-
-RecycleOtpRouter.post("/verifyRecycleOtp", recyclesOtpController.verifyRecycleOtp);
-
+RecycleOtpRouter.post(
+  "/verifyRecycleOtp",
+  recyclesOtpController.verifyRecycleOtp
+);
 
 //test Method
 RecycleOtpRouter.get("/test", (req, res) => {

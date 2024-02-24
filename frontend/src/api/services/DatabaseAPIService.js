@@ -32,7 +32,10 @@ const getByGmail = async (email) => {
  * @returns {Promise}
  */
 const verifyRecycleOtp = async (otp) => {
-  return http.post("/otp/verifyRecycleOtp", { recycleOtp: otp });
+  const data = {
+    recycleOtp: otp,
+  };
+  return http.post("/otp/verifyRecycleOtp", data);
 };
 
 /**
