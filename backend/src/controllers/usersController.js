@@ -4,7 +4,7 @@ import { User } from "../model/user.js";
 const createUser = async (req, res) => {
     const newUser = new User({
       userName: req.body.userName,
-      userEmail: req.body.element,
+      userEmail: req.body.email,
     });
     
     try {
@@ -37,7 +37,7 @@ const changeProfilePicture = async (req, res) => {
     }
 };
 
-const updateElementalsCollections = (req, res) => {
+const updateEnvironmentalsCollections = (req, res) => {
     try {
       const result = User.update(
         { userId: req.body.userId ,
@@ -49,6 +49,19 @@ const updateElementalsCollections = (req, res) => {
       res.send(err.message);
     }
   };
+
+const getEnvironmentalsCollections = (req, res) => {
+  try {
+    User.findById({ _id: req.params.id })
+      .then((found) => {
+        res.send(found.collections);
+        return found.collections;
+    })
+  } catch (err) {
+    console.log(err);
+    res.send(err.message);
+  }
+};
 
 const getAllUsers = (req, res) => {
     User.find()
@@ -64,7 +77,8 @@ const getAllUsers = (req, res) => {
  export {
     createUser,
     changeProfilePicture,
-    updateElementalsCollections,
+    updateEnvironmentalsCollections,
+    getEnvironmentalsCollections,
     getAllUsers,
 };
 
