@@ -118,7 +118,7 @@ export const CardContainer = ({
             transformStyle: "preserve-3d",
           }}
         >
-          {children}
+          {children} test {animateX} {animateY}
         </div>
       </div>
     </MouseEnterContext.Provider>
