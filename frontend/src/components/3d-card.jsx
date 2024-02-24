@@ -63,7 +63,7 @@ export const CardContainer = ({
       const y = clamp(Math.floor(beta - 45), -10, 10);
       setX(x);
       setY(y);
-      // containerRef.current.style.transform = `rotateY(${x}deg) rotateX(${y}deg)`;
+      containerRef.current.style.transform = `rotateY(${animateY}deg) rotateX(${animateY}deg)`;
     }
     if (!initialised) {
       setInitialised(true);
