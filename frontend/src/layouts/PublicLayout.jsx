@@ -5,7 +5,7 @@ export default function PublicLayout() {
   const { user } = useAuth();
 
   if (user) {
-    return <Navigate to="/user" />;
+    return <Navigate to="/home" />;
   }
 
   return (
