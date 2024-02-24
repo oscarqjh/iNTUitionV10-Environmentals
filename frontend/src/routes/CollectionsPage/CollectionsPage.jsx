@@ -2,6 +2,8 @@ import { TextGenerateEffect } from "@/components/text-generate-effect";
 import { CardBody, CardContainer, CardItem } from "@/components/3d-card";
 import { useEffect, useState } from "react";
 import { clamp } from "@/lib/utils";
+import { LayoutGrid } from "@/components/layout-grid";
+import { cardData } from "@/data/data.jsx";
 
 export default function CollectionsPage() {
   const [initialised, setInitialised] = useState(false);
@@ -47,12 +49,12 @@ export default function CollectionsPage() {
 
   return (
     <>
-      <div className="flex flex-col h-[50rem] w-full dark:bg-black bg-white dark:bg-dot-white/[0.2] bg-dot-black/[0.2] relative items-center justify-start">
+      <div className="flex flex-col h-max w-full dark:bg-black bg-white dark:bg-dot-white/[0.2] bg-dot-black/[0.2] relative items-center justify-start">
         {/* Radial gradient for the container to give a faded look */}
         <div className="absolute pointer-events-none inset-0 flex items-center justify-center dark:bg-black bg-white [mask-image:radial-gradient(ellipse_at_center,transparent_20%,black)]"></div>
 
         <CardContainer className="inter-var" animateX={x} animateY={y}>
-          <CardBody className="bg-gray-50 relative group/card  dark:hover:shadow-2xl dark:hover:shadow-emerald-500/[0.1] dark:bg-black dark:border-white/[0.2] border-black/[0.1] w-auto sm:w-[30rem] h-auto rounded-xl p-6 border  ">
+          <CardBody className="bg-gray-50 relative group/card  dark:hover:shadow-2xl dark:hover:shadow-emerald-500/[0.1] dark:bg-black dark:border-white/[0.2] border-black/[0.1] w-auto sm:w-[30rem] h-auto mx-[15vw] rounded-xl p-6 border  ">
             <CardItem
               translateZ="50"
               className="text-xl font-bold text-neutral-600 dark:text-white"
@@ -69,9 +71,7 @@ export default function CollectionsPage() {
             <CardItem translateZ="100" className="w-full mt-4">
               <img
                 src="/mons/earth_legendary_1.png"
-                height="1000"
-                width="1000"
-                className="h-100 w-full object-cover rounded-xl group-hover/card:shadow-xl"
+                className=" rounded-xl group-hover/card:shadow-xl"
                 alt="thumbnail"
               />
             </CardItem>
@@ -94,6 +94,11 @@ export default function CollectionsPage() {
           </CardBody>
         </CardContainer>
         <TextGenerateEffect words="Collections" />
+        <div className="collections-wrapper h-screen ">
+          <div className="h-screen py-20 w-screen">
+            <LayoutGrid cards={cardData} />
+          </div>
+        </div>
       </div>
     </>
   );
