@@ -6,7 +6,7 @@ const UsersRouter = express.Router();
 
 UsersRouter.get("/getAllUsers", usersController.getAllUsers);
 
-UsersRouter.get("/getUserByEmail", usersController.getUserByEmail);
+UsersRouter.get("/getUserByEmail/:email", usersController.getUserByEmail);
 
 UsersRouter.post("/addUsers", usersController.createUser);
 
