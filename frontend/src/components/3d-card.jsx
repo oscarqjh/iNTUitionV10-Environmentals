@@ -1,6 +1,5 @@
 "use client";
-
-import { cn } from "@/lib/utils";
+import { cn, isMobileTablet } from "@/lib/utils";
 import { clamp } from "framer-motion";
 import React, {
   createContext,
@@ -34,8 +33,10 @@ export const CardContainer = ({
   };
 
   useEffect(() => {
-    requestRef.current = requestAnimationFrame(animate);
-    return () => cancelAnimationFrame(requestRef.current);
+    if (isMobileTablet()) {
+      requestRef.current = requestAnimationFrame(animate);
+      return () => cancelAnimationFrame(requestRef.current);
+    }
   }, []);
 
   useEffect(() => {
