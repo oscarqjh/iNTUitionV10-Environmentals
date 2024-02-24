@@ -12,7 +12,7 @@ export default function HomePage() {
     logout();
   };
 
-  const bottle = 81;
+  const bottle = user.totalBottlesRecycled;
   const bottlescollected = bottle % 5;
   const value = (bottlescollected / 5) * 100;
   const bottlestogo = 5 - bottlescollected;
@@ -22,7 +22,7 @@ export default function HomePage() {
       <div className="flex flex-col h-min w-full min-h-[100vh] dark:bg-black bg-white dark:bg-dot-white/[0.2] bg-dot-black/[0.2] relative items-center justify-start">
         {/* Radial gradient for the container to give a faded look */}
         <div className="absolute pointer-events-none inset-0 flex items-center justify-center dark:bg-black bg-white [mask-image:radial-gradient(ellipse_at_center,transparent_20%,black)]"></div>
-        <TextGenerateEffect words="Welcome back, User!" />
+        <TextGenerateEffect words={"Welcome " + user.userName + " !"} />
         <div className="text-center text-3xl sm:text-7xl font-bold relative z-20 bg-clip-text text-transparent bg-black from-neutral-200 to-neutral-500">
           Bottles recycled: <span style={{ color: "red" }}>{bottle}</span>
         </div>
