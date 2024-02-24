@@ -1,6 +1,7 @@
 "use client";
 
 import { cn } from "@/lib/utils";
+import { clamp } from "framer-motion";
 import React, {
   createContext,
   useState,
@@ -42,10 +43,9 @@ export const CardContainer = ({
 
       // convert back to degrees
       var spin = (spinR * 180) / Math.PI;
-      const { left, top, width, height } =
-        containerRef.current.getBoundingClientRect();
-      const x = (spin - left - width / 2) / 25;
-      const y = (beta - top - height / 2) / 25;
+
+      const x = clamp(Math.floor(gamma), -10, 10);
+      const y = clamp(Math.floor(beta - 45), -10, 10);
       containerRef.current.style.transform = `rotateY(${x}deg) rotateX(${y}deg)`;
     }
     if (!initialised) {
