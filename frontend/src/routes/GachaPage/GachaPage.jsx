@@ -25,60 +25,47 @@ export default function GachaPage() {
     "/mons/flying_threatened_1.png",
     "/mons/water_threatened_1.png",
   ];
-  const handleVerifyOtp = async () => {
-    try {
-      const response = await DatabaseAPIService.verifyRecycleOtp(otp);
-      if (response.status === 200) {
-        // otp verification successful
-        console.log("Otp verified successfully");
-        setErrorMessage("");
-      } else {
-        // otp verification failed (Bad request === 400)
-        setErrorMessage("Invalid OTP! Please try again.");
-      }
-    } catch (error) {
-      console.error("Error in handleVerifyOtp", error);
-    }
-  };
-  const test = () => {
-    console.log("Test");
-  };
-  const generateRandomRarity = () => {
-    console.log("Start");
+
+  const generateRandomRarity = async () => {
     const rarity = {
       common: 0.7,
       threatened: 0.25,
       endangered: 0.05,
     };
-    console.log("Start");
+
     const rarities = Object.keys(rarity);
-    console.log(rarities);
+
     // Calculate the total sum of probabilities
-    const totalProbability = rarities.reduce(
-      (acc, key) => acc + rarity[key],
-      0
-    );
-    console.log("reduced ");
+    const totalProbability = 1;
+
     // Generate a random number between 0 and the total sum
     const randomNum = Math.random() * totalProbability;
 
-    // Iterate through rarities to find the winner
-    let cumulativeProbability = 0;
     let chosenRarity;
-    for (let i = 0; i < rarities.length; i++) {
-      cumulativeProbability += rarity[rarities[i]];
-      if (randomNum <= cumulativeProbability) {
-        chosenRarity = rarities[i]; // Return the selected rarity
-      }
+    // Iterate through rarities to find the winner
+    if (randomNum < rarity.common) {
+      chosenRarity = "common";
+    } else if (randomNum < rarity.common + rarity.threatened) {
+      chosenRarity = "threatened";
+    } else {
+      chosenRarity = "endangered";
     }
-    console.log("Filtering " + chosenRarity);
-    const array = cardData.filter((item) => item[rarity] === chosenRarity);
+
+    // console.log("Filtering " + chosenRarity);
+    const array = cardData.filter((card) => card.rarity === chosenRarity);
+
     const randomIndex = Math.floor(Math.random() * array.length);
 
-    console.log(array[randomIndex] + " has been selected!");
-    return array[randomIndex];
+    // console.log(array[randomIndex].id + " has been selected!");
 
-    // This should not be reached, but in case of unexpected issues, return null
+    // Update the user's collection
+    const newUser = { ...user };
+    newUser.collections[array[randomIndex].id - 1].count += 1;
+    newUser.tickets -= 1;
+
+    const response = await DatabaseAPIService.updateUser(newUser);
+    setUser(response.data);
+    console.log(response.data);
   };
 
   return (
@@ -99,7 +86,11 @@ export default function GachaPage() {
             <div className="pl-2">x {user.tickets}</div>
           </div>
 
-          <Button className="mt-4" onClick={test}>
+          <Button
+            disabled={user.tickets > 0 ? false : true}
+            onClick={generateRandomRarity}
+            className="mt-4"
+          >
             Open Pack
           </Button>
         </div>
