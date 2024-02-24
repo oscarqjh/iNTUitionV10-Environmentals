@@ -28,6 +28,17 @@ export default function CollectionsPage() {
   const location = useLocation();
   const [range, setRange] = useState([]);
   const { user } = useAuth();
+  const [total, setTotal] = useState();
+
+  useEffect(() => {
+    if (user) {
+      setTotal(
+        user.collections.reduce((acc, curr) => {
+          return curr.count > 0 ? acc + curr.count : acc;
+        }, 0)
+      );
+    }
+  }, [user]);
 
   const getRange = (id) => {
     if (id === "#2") {
@@ -63,7 +74,7 @@ export default function CollectionsPage() {
 
         // convert back to degrees
         var spin = (spinR * 180) / Math.PI;
-        console.log(spin);
+        // console.log(spin);
         const x = clamp(Math.floor(gamma), -10, 10);
         const y = clamp(Math.floor(beta - 45), -10, 10);
 
@@ -122,6 +133,7 @@ export default function CollectionsPage() {
           </CardBody>
         </CardContainer>
         <TextGenerateEffect words="Collections" />
+        <div className="mb-4">Collected {total}/25</div>
         <div className="collections-wrapper h-max ">
           <div className="h-max pb-[15vh] w-screen">
             <LayoutGrid

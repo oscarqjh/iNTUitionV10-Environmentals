@@ -107,7 +107,12 @@ const SelectedCard = ({ selected }) => {
         className="relative px-8 pb-4 z-[70]"
       >
         {selected ? (
-          <SkeletonOne element={selected.element} rarity={selected.rarity} />
+          <SkeletonOne
+            name={selected.name}
+            element={selected.element}
+            rarity={selected.rarity}
+            description={selected.description}
+          />
         ) : null}
       </motion.div>
     </div>
