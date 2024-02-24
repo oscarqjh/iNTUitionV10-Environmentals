@@ -21,6 +21,7 @@ app.use("/locations", LocationsRouter);
 app.use("/otp", RecycleOtpRouter);
 app.use("/recycles", RecyclesRouter);
 app.use("/users", UsersRouter);
+app.use("/collectibles", CollectiblesRouter);
 
 ///////////////////////////////////////////////// cors set-up //////////////////////////////////////////////////
 var corsOptions = {
