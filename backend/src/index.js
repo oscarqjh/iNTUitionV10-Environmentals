@@ -3,7 +3,11 @@ import mongoose from "mongoose";
 import bodyParser from "body-parser";
 import cors from "cors";
 import "dotenv/config";
-import { APIrouter } from "./routes/routes.js";
+import { EnvironmentalsRouter } from "./routes/environmentalsRouter.js";
+import { LocationsRouter } from "./routes/locationsRouter.js";
+import { RecycleOtpRouter } from "./routes/recycleOtpRouter.js";
+import { RecyclesRouter } from "./routes/recyclesRouter.js";
+import { UsersRouter } from "./routes/usersRouter.js";
 
 ///////////////////////////////////////////////// app set-up //////////////////////////////////////////////////
 const app = express();
@@ -11,7 +15,12 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(express.json());
 app.use(cors(corsOptions));
-app.use("/api", APIrouter);
+// Routes
+app.use("/environmentals", EnvironmentalsRouter);
+app.use("/locations", LocationsRouter);
+app.use("/otp", RecycleOtpRouter);
+app.use("/recycles", RecyclesRouter);
+app.use("/users", UsersRouter);
 
 ///////////////////////////////////////////////// cors set-up //////////////////////////////////////////////////
 var corsOptions = {
