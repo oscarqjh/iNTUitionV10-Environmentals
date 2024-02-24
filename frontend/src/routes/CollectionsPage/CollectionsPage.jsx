@@ -32,9 +32,9 @@ export default function CollectionsPage() {
         var spin = (spinR * 180) / Math.PI;
         console.log(spin);
         setSpin(spin);
-        setAlpha(alphaR);
-        setBeta(betaR);
-        setGamma(gammaR);
+        setAlpha((alphaR * 180) / Math.PI);
+        setBeta((betaR * 180) / Math.PI);
+        setGamma((gammaR * 180) / Math.PI);
       }
     }
   }, []);
