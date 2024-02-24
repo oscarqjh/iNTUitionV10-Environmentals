@@ -9,6 +9,14 @@ const dataSchema = new mongoose.Schema({
     required: true,
     type: String,
   },
+  recycleType: {
+    required: true,
+    type: String,
+  },
+  recycleCompany: {
+    required: true,
+    type: String,
+  },
 });
 
 const Locations = mongoose.model("Locations", dataSchema);
