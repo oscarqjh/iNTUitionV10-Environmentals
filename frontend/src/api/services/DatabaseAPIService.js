@@ -17,9 +17,19 @@ const addUser = (data) => {
   return http.post("/users/addUsers", data);
 };
 
+/**
+ * Get user by email
+ * @param {string} email
+ * @returns {Promise}
+ */
+const getByGmail = (email) => {
+  return http.get(`/users/getUserByEmail/${email}`);
+};
+
 const DatabaseAPIService = {
   getAllUsers,
   addUser,
+  getByGmail,
 };
 
 export default DatabaseAPIService;
