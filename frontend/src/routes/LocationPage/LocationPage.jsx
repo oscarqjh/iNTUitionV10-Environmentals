@@ -4,7 +4,7 @@ const LocationPage = () => {
 
   return (
   <>
-    <div className="h-screen w-auto">
+    <div className="h-screen w-screen">
         <iframe 
           src="https://www.google.com/maps/d/embed?mid=1ySyBcuorBk9s4c59jRkJhceMATM3fF2b&ehbc=2E312F" 
           width="100%" 
