@@ -6,9 +6,28 @@ import { Label } from "@/components/ui/label";
 import { Separator } from "@/components/ui/separator";
 import { useState } from "react";
 import ticketIcon from "/ticket.svg";
+import DatabaseAPIService from "@/api/services/DatabaseAPIService";
+
 
 export default function GachaPage() {
   const [otp, setOtp] = useState("");
+  const [errorMessage, setErrorMessage] = useState('');
+
+  const handleVerifyOtp = async () => {
+    try {
+      const response = await DatabaseAPIService.verifyRecycleOtp(otp);
+      if (response.status === 200) {
+        // otp verification successful
+        console.log("Otp verified successfully");
+      } else {
+        // otp verification failed (Bad request === 400)
+        setErrorMessage('Invalid OTP! Please try again.');
+      }
+    } catch (error) {
+      console.error("Error in handleVerifyOtp", error);
+    }
+  }
+
   return (
     <>
       <div className="flex flex-col h-max w-full min-h-[100vh] dark:bg-black bg-white dark:bg-dot-white/[0.2] bg-dot-black/[0.2] relative items-center justify-start">
@@ -42,7 +61,7 @@ export default function GachaPage() {
             onChange={(e) => setOtp(e.target.value)}
           />
         </div>
-        <Button className="mt-4">Redeem</Button>
+        <Button className="mt-4" onClick={handleVerifyOtp}>Redeem</Button>
       </div>
       <LabelBottomNavigation />
     </>
