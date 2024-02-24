@@ -44,13 +44,23 @@ export default function HomePage() {
             }}
           >
             <div className="text-center text-3xl sm:text-7xl font-bold relative z-20 bg-clip-text text-transparent bg-black from-neutral-200 to-neutral-500 py-2">
-              Did you know?
+              Save the Environmentals!
             </div>
             <div className="text-center-justify py-2">
-              Recycling is often emphasized as a crucial step in environmental
-              conservation. When recycling plastic, we contribute to energy
-              conservation since recycling consumes less energy compared to
-              producing new plastic.
+              Recycle used plastic bottles or aluminium cans 
+              at the nearest
+              RecycleNSave vending machines now! 
+            </div>
+            <div className="text-center-justify py-2">
+              Begin your journey to 
+              protect the Environmentals: Magical & Mystical 
+              creatures that thrive in a 
+              clean and sustainable environment.
+            </div>
+            <div className="text-center-justify py-2">
+              1. Every 5 items recycled will earn you a reward!
+              2. Claim reward OTP via Environmentals WebApp
+              3. Stand a chance to collect all avatars!
             </div>
           </Box>
         </div>
