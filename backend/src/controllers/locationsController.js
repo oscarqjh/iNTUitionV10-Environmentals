@@ -11,12 +11,14 @@ const getAllLocations = (req, res) => {
         console.log(err);
         res.send(err.message);
       });
-  };
+};
 
 const addLocations = (req, res) => {
     const newLocation = new Locations({
       locationName: req.body.locationName,
       address: req.body.address,
+      recycleType: req.body.recycleType,
+      recycleCompany: req.body.recycleCompany,
     });
     
     try {
