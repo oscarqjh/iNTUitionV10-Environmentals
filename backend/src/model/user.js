@@ -2,27 +2,27 @@
 import mongoose, { Schema } from "mongoose";
 
 const dataSchema = new mongoose.Schema({
-  user_id: {
+  userId: {
     required: true,
     type: String,
   },
-  user_name: {
+  userName: {
     required: true,
     type: String,
   },
-  user_email: {
+  userEmail: {
     required: true,
     type: String,
   },
-  total_environmentals_level: {
+  totalEnvironmentalsLevel: {
     required: true,
     type: Number,
   },
-  profile_picture_url: {
+  profilePictureUrl: {
     required: true,
     type: String,
   },
-  created_at: {
+  createdAt: {
     type: Date,
     default: Date.now,
   },

@@ -1,11 +1,11 @@
 import mongoose, { Schema } from "mongoose";
 
 const dataSchema = new mongoose.Schema({
-  location_id: {
+  locationId: {
     required: true,
     type: String,
   },
-  location_name: {
+  locationName: {
     required: true,
     type: String,
   },

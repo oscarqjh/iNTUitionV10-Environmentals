@@ -1,27 +1,27 @@
 import mongoose, { Schema } from "mongoose";
 
 const dataSchema = new mongoose.Schema({
-  recycle_otp: {
+  recycleOtp: {
     required: true,
     type: String,
   },
-  location_id: {
+  locationId: {
     required: true,
     type: String,
   },
-  recycle_company: {
+  recycleCompany: {
     required: true,
     type: String,
   },
-  recycle_type: {
+  recycleType: {
     required: true,
     type: String,
   },
-  recycle_amount: {
+  recycleAmount: {
     required: true,
     type: Number,
   },
-  experience_earned: {
+  experienceEarned: {
     required: true,
     type: Number,
   },

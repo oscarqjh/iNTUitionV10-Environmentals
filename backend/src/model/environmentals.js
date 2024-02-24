@@ -1,7 +1,7 @@
 import mongoose, { Schema } from "mongoose";
 
 const dataSchema = new mongoose.Schema({
-  environmental_name: {
+  environmentalName: {
     required: true,
     type: String,
   },
@@ -22,15 +22,15 @@ const dataSchema = new mongoose.Schema({
     type: Number,
     default: 0,
   },
-  owner_id: {
+  ownerId: {
     required: true,
     type: String,
   },
-  created_at: {
+  createdAt: {
     type: Date,
     default: Date.now,
   },
-  image_url: {
+  imageUrl: {
     required: true,
     type: String,
   },
