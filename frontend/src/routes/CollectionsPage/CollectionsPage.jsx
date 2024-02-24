@@ -9,6 +9,8 @@ export default function CollectionsPage() {
   const [alpha, setAlpha] = useState(0);
   const [beta, setBeta] = useState(0);
   const [gamma, setGamma] = useState(0);
+  const [x, setX] = useState(0);
+  const [y, setY] = useState(0);
 
   useEffect(() => {
     if (!initialised) {
@@ -35,8 +37,10 @@ export default function CollectionsPage() {
         const x = clamp(Math.floor(gamma), -10, 10);
         const y = clamp(Math.floor(beta - 45), -10, 10);
 
-        setAlpha(x);
-        setBeta(y);
+        setAlpha(Math.floor(alpha));
+        setBeta(Math.floor(beta));
+        setX(x);
+        setY(y);
       }
     }
   }, []);
