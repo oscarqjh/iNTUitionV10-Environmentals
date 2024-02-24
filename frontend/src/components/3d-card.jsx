@@ -58,6 +58,7 @@ export const CardContainer = ({ children, className, containerClassName }) => {
   useEffect(() => {
     if (!containerRef.current) return;
     containerRef.current.style.transform = `rotateY(${x}deg) rotateX(${y}deg)`;
+    console.log(x, y);
   }, [x, y]);
 
   const handleMouseMove = (e) => {
