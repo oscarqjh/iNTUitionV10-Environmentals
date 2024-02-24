@@ -52,10 +52,16 @@ export default function CollectionsPage() {
         <div className="absolute pointer-events-none inset-0 flex items-center justify-center dark:bg-black bg-white [mask-image:radial-gradient(ellipse_at_center,transparent_20%,black)]"></div>
 
         <p className="w-[70%] h-[1000px] text-center text-4xl sm:text-7xl font-bold relative z-20 bg-clip-text text-transparent bg-black from-neutral-200 to-neutral-500 py-8">
-          x: {alpha}
+          a: {alpha}
         </p>
         <p className="w-[70%] h-[1000px] text-center text-4xl sm:text-7xl font-bold relative z-20 bg-clip-text text-transparent bg-black from-neutral-200 to-neutral-500 py-8">
-          y: {beta}
+          b: {beta}
+        </p>
+        <p className="w-[70%] h-[1000px] text-center text-4xl sm:text-7xl font-bold relative z-20 bg-clip-text text-transparent bg-black from-neutral-200 to-neutral-500 py-8">
+          x: {x}
+        </p>
+        <p className="w-[70%] h-[1000px] text-center text-4xl sm:text-7xl font-bold relative z-20 bg-clip-text text-transparent bg-black from-neutral-200 to-neutral-500 py-8">
+          y: {y}
         </p>
 
         <CardContainer className="inter-var" a={alpha} b={beta} g={gamma}>
