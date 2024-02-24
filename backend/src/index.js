@@ -8,6 +8,7 @@ import { LocationsRouter } from "./routes/locationsRouter.js";
 import { RecycleOtpRouter } from "./routes/recycleOtpRouter.js";
 import { RecyclesRouter } from "./routes/recyclesRouter.js";
 import { UsersRouter } from "./routes/usersRouter.js";
+import { CollectiblesRouter } from "./routes/collectiblesRouter.js";  
 
 ///////////////////////////////////////////////// app set-up //////////////////////////////////////////////////
 const app = express();
@@ -21,6 +22,7 @@ app.use("/locations", LocationsRouter);
 app.use("/otp", RecycleOtpRouter);
 app.use("/recycles", RecyclesRouter);
 app.use("/users", UsersRouter);
+app.use("/collectibles", CollectiblesRouter); 
 
 ///////////////////////////////////////////////// cors set-up //////////////////////////////////////////////////
 var corsOptions = {
