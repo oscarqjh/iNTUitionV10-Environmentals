@@ -109,18 +109,25 @@ export default function CollectionsPage() {
                 translateZ="50"
                 className="text-xl font-bold text-neutral-600 dark:text-white"
               >
-                Flying Dog
+                {cardData[user.equippedEnvironmental - 1].name}
               </CardItem>
               <CardItem
                 as="p"
                 translateZ="60"
                 className="text-neutral-500 text-sm max-w-sm mt-2 dark:text-neutral-300"
               >
-                A flying dog mon
+                Type: {cardData[user.equippedEnvironmental - 1].element}
+              </CardItem>
+              <CardItem
+                as="p"
+                translateZ="60"
+                className="text-neutral-500 text-sm max-w-sm mt-2 dark:text-neutral-300"
+              >
+                Rarity: {cardData[user.equippedEnvironmental - 1].rarity}
               </CardItem>
               <CardItem translateZ="100" className="w-full mt-4">
                 <img
-                  src="/mons/earth_common_1.png"
+                  src={cardData[user.equippedEnvironmental - 1].thumbnail}
                   className=" rounded-xl group-hover/card:shadow-xl"
                   alt="thumbnail"
                 />
@@ -130,17 +137,8 @@ export default function CollectionsPage() {
                 translateZ="60"
                 className="text-neutral-500 text-sm max-w-sm mt-2 dark:text-neutral-300"
               >
-                Level: 10
+                {cardData[user.equippedEnvironmental - 1].description}
               </CardItem>
-              <div className="flex justify-between items-center mt-10">
-                <CardItem
-                  translateZ={20}
-                  as="button"
-                  className="px-4 py-2 rounded-xl bg-black dark:bg-white dark:text-black text-white text-xs font-bold"
-                >
-                  Level up
-                </CardItem>
-              </div>
             </CardBody>
           </CardContainer>
         )}

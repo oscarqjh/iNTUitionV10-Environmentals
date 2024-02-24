@@ -19,6 +19,7 @@ export default function GachaPage() {
       if (response.status === 200) {
         // otp verification successful
         console.log("Otp verified successfully");
+        setErrorMessage('');
       } else {
         // otp verification failed (Bad request === 400)
         setErrorMessage('Invalid OTP! Please try again.');
@@ -60,6 +61,7 @@ export default function GachaPage() {
             placeholder="Enter here..."
             onChange={(e) => setOtp(e.target.value)}
           />
+          {errorMessage && <div className="text-red-500">{errorMessage}</div>}
         </div>
         <Button className="mt-4" onClick={handleVerifyOtp}>Redeem</Button>
       </div>
