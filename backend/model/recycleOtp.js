@@ -27,6 +27,8 @@ const dataSchema = new mongoose.Schema({
   },
 });
 
+dataSchema.index( { expireAt: 1 }, { expireAfterSeconds: 300 } )
+
 const RecycleOtp = mongoose.model("RecycleOtp", dataSchema);
 
 export { RecycleOtp };
