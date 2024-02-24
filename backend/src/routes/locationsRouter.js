@@ -1,5 +1,5 @@
 import express from "express";
-import { Locations } from "../model/locations.js";
+import * as locationsController from "../controllers/locationsController.js";
 
 const LocationsRouter = express.Router();
 
@@ -7,18 +7,9 @@ const LocationsRouter = express.Router();
  * getAllLocations method
  * @return {Array} found
  */
-LocationsRouter.get("/getAllLocations", (req, res) => {
-  Locations.find()
-    .then((found) => {
-      res.send(found);
-      return found;
-    })
-    .catch((err) => {
-      console.log(err);
-      res.send(err.message);
-    });
-});
+LocationsRouter.get("/getAllLocations", locationsController.getAllLocations);
 
+LocationsRouter.post("/addLocations", locationsController.addLocations);
 
 //test Method
 LocationsRouter.get("/test", (req, res) => {
