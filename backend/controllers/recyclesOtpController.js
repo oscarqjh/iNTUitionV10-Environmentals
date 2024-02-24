@@ -41,6 +41,7 @@ const verifyRecycleOtp = (req, res) => {
           experienceEarned: result.experienceEarned,
         };
         addRecycleLog(recycleLog);
+        RecycleOtp.deleteOne({ recycleOtp: req.body.recycleOtp });
       }
       res.send(result);
     } catch (err) {
@@ -48,7 +49,18 @@ const verifyRecycleOtp = (req, res) => {
     }
   };
 
+  // const deleteRecycleOtp = (req, res) => {
+  //   try {
+  //     RecycleOtp.deleteOne({ recycleOtp: req.body.recycleOtp });
+  //     res.send("Recycle Otp Deleted");
+  //   } catch (err) {
+  //     console.log(err);
+  //     res.send(err.message);
+  //   }
+  // };
+
 export {
     generateRecycleOtp,
     verifyRecycleOtp,
+    // deleteRecycleOtp,
 }
