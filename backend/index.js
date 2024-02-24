@@ -14,7 +14,7 @@ const app = express();
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(express.json());
-app.use(cors(corsOptions));
+// app.use(cors(corsOptions));
 // Routes
 app.use("/environmentals", EnvironmentalsRouter);
 app.use("/locations", LocationsRouter);
