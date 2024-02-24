@@ -85,8 +85,20 @@ const getUserByEmail = (req, res) => {
       });
 };
 
+const updateUser = (req, res) => {
+  User.findOneAndUpdate({ userEmail: req.body.email }, req.body.userData, {new: true})
+      .then((found) => {
+      res.send(found);
+      })
+      .catch((err) => {
+      console.log(err);
+      res.send(err.message);
+      });
+};
+
 /**
-Not done yet
+Deprecated
+
 const getTotalBottles = (req, res) => {
   User.find()
       .then((found) => {
@@ -117,6 +129,7 @@ const getTotalLevels = (req, res) => {
     getEnvironmentalsCollections,
     getAllUsers,
     getUserByEmail,
+    updateUser,
     // getTotalBottles,
     // getTotalLevels,
 };

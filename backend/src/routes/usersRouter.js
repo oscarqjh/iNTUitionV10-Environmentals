@@ -9,10 +9,9 @@ UsersRouter.get("/getUserByEmail/:email", usersController.getUserByEmail);
 
 UsersRouter.post("/addUsers", usersController.createUser);
 
-UsersRouter.post(
-  "/userChangeEnvironmental",
-  usersController.changeEquippedEnvironmental
-);
+UsersRouter.put("/updateUser", usersController.updateUser);
+
+UsersRouter.post("/userChangeEnvironmental", usersController.changeEquippedEnvironmental);
 
 UsersRouter.post(
   "/updateEnvironmentalsCollections",
