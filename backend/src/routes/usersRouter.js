@@ -10,7 +10,9 @@ UsersRouter.post("/addUsers", usersController.createUser);
 
 UsersRouter.post("/userChangeAvatar", usersController.changeProfilePicture);
 
-UsersRouter.post("/updateElementalsCollections", usersController.updateElementalsCollections);
+UsersRouter.post("/updateEnvironmentalsCollections", usersController.updateEnvironmentalsCollections);
+
+UsersRouter.get("/:id/EnvironmentalsCollections", usersController.getEnvironmentalsCollections);
 
 //test Method
 UsersRouter.get("/test", (req, res) => {
