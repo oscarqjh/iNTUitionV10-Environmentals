@@ -4,7 +4,7 @@ import http from "../common";
  * Get all users
  * @returns {Promise}
  */
-const getAllUsers = () => {
+const getAllUsers = async () => {
   return http.get("/users/getAllUsers");
 };
 
@@ -13,7 +13,7 @@ const getAllUsers = () => {
  * @param {object} data
  * @returns {Promise}
  */
-const addUser = (data) => {
+const addUser = async (data) => {
   return http.post("/users/addUsers", data);
 };
 
@@ -22,7 +22,7 @@ const addUser = (data) => {
  * @param {string} email
  * @returns {Promise}
  */
-const getByGmail = (email) => {
+const getByGmail = async (email) => {
   return http.get(`/users/getUserByEmail/${email}`);
 };
 
