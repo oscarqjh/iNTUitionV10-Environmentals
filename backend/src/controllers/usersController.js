@@ -24,11 +24,11 @@ const createUser = async (req, res) => {
 };
 
 
-const changeProfilePicture = async (req, res) => {
+const changeEquippedEnvironmental = async (req, res) => {
     try {
         const result = User.updateOne(
         { userId: req.body.userId},
-        { profilePictureUrl: req.body.newProfilePicture }
+        { equippedEnvironmental: req.body.newEnvironmentalId }
         );
         res.send(result);
     } catch (err) {
@@ -74,12 +74,51 @@ const getAllUsers = (req, res) => {
         });
 };
 
+const getUserByEmail = (req, res) => {
+  User.find()
+      .then((found) => {
+      res.send(found);
+      })
+      .catch((err) => {
+      console.log(err);
+      res.send(err.message);
+      });
+};
+
+/**
+Not done yet
+const getTotalBottles = (req, res) => {
+  User.find()
+      .then((found) => {
+      res.send(found);
+      })
+      .catch((err) => {
+      console.log(err);
+      res.send(err.message);
+      });
+};
+
+const getTotalLevels = (req, res) => {
+  User.find()
+      .then((found) => {
+      res.send(found);
+      })
+      .catch((err) => {
+      console.log(err);
+      res.send(err.message);
+      });
+};
+**/
+
  export {
     createUser,
-    changeProfilePicture,
+    changeEquippedEnvironmental,
     updateEnvironmentalsCollections,
     getEnvironmentalsCollections,
     getAllUsers,
+    getUserByEmail,
+    // getTotalBottles,
+    // getTotalLevels,
 };
 
 
