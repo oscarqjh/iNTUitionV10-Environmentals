@@ -21,34 +21,37 @@ export const CardContainer = ({
 }) => {
   const containerRef = useRef(null);
   const [isMouseEntered, setIsMouseEntered] = useState(false);
+  const [initialised, setInitialised] = useState(false);
 
   useEffect(() => {
+    function handleOrientation(event) {
+      if (!containerRef.current) return;
+      // those angles are in degrees
+      var alpha = event.alpha;
+      var beta = event.beta;
+      var gamma = event.gamma;
+
+      // JS math works in radians
+      var alphaR = (alpha / 180) * Math.PI;
+      var betaR = (beta / 180) * Math.PI;
+      var gammaR = (gamma / 180) * Math.PI;
+      var spinR = Math.atan2(
+        Math.cos(betaR) * Math.sin(gammaR),
+        Math.sin(betaR)
+      );
+
+      // convert back to degrees
+      var spin = (spinR * 180) / Math.PI;
+      const { left, top, width, height } =
+        containerRef.current.getBoundingClientRect();
+      const x = (spin - left - width / 2) / 25;
+      const y = (beta - top - height / 2) / 25;
+      containerRef.current.style.transform = `rotateY(${x}deg) rotateX(${y}deg)`;
+    }
     if (!initialised) {
       setInitialised(true);
+
       window.addEventListener("deviceorientation", handleOrientation, true);
-      function handleOrientation(event) {
-        // those angles are in degrees
-        var alpha = event.alpha;
-        var beta = event.beta;
-        var gamma = event.gamma;
-
-        // JS math works in radians
-        var alphaR = (alpha / 180) * Math.PI;
-        var betaR = (beta / 180) * Math.PI;
-        var gammaR = (gamma / 180) * Math.PI;
-        var spinR = Math.atan2(
-          Math.cos(betaR) * Math.sin(gammaR),
-          Math.sin(betaR)
-        );
-
-        // convert back to degrees
-        var spin = (spinR * 180) / Math.PI;
-        const { left, top, width, height } =
-          containerRef.current.getBoundingClientRect();
-        const x = (spin - left - width / 2) / 25;
-        const y = (beta - top - height / 2) / 25;
-        containerRef.current.style.transform = `rotateY(${x}deg) rotateX(${y}deg)`;
-      }
     }
     return () => {
       window.removeEventListener("deviceorientation", handleOrientation, true);
