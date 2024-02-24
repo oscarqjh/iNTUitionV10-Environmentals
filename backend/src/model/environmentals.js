@@ -13,12 +13,11 @@ const dataSchema = new mongoose.Schema({
     required: true,
     type: String,
   },
-  level: {
-    required: true,
-    type: Number,
-  },
+  // level: {
+  //   required: true,
+  //   type: Number,
+  // },
   experience: {
-    required: true,
     type: Number,
     default: 0,
   },
