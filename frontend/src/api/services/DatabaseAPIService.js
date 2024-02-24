@@ -26,10 +26,20 @@ const getByGmail = async (email) => {
   return http.get(`/users/getUserByEmail/${email}`);
 };
 
+/**
+ * Check if otp is valid
+ * @param {string} verifyRecycleOtp
+ * @returns {Promise}
+ */
+const verifyRecycleOtp = async (otp) => {
+  return http.post('/otp/verifyRecycleOtp', { recycleOtp: otp });
+};
+
 const DatabaseAPIService = {
   getAllUsers,
   addUser,
   getByGmail,
+  verifyRecycleOtp,
 };
 
 export default DatabaseAPIService;
