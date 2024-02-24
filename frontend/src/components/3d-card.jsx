@@ -12,14 +12,7 @@ import React, {
 
 const MouseEnterContext = createContext(undefined);
 
-export const CardContainer = ({
-  children,
-  className,
-  containerClassName,
-  a,
-  b,
-  g,
-}) => {
+export const CardContainer = ({ children, className, containerClassName }) => {
   const containerRef = useRef(null);
   const [isMouseEntered, setIsMouseEntered] = useState(false);
   const [initialised, setInitialised] = useState(false);

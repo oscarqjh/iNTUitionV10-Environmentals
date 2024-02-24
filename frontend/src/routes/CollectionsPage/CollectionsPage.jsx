@@ -31,10 +31,11 @@ export default function CollectionsPage() {
         // convert back to degrees
         var spin = (spinR * 180) / Math.PI;
         console.log(spin);
-        setSpin(spin);
-        setAlpha(Math.floor((alphaR * 180) / Math.PI));
-        setBeta(Math.floor((betaR * 180) / Math.PI));
-        setGamma(Math.floor((gammaR * 180) / Math.PI));
+        const x = clamp(Math.floor(gamma), -10, 10);
+        const y = clamp(Math.floor(beta - 45), -10, 10);
+
+        setAlpha(x);
+        setBeta(y);
       }
     }
   }, []);
@@ -44,18 +45,14 @@ export default function CollectionsPage() {
       <div className="flex flex-col h-[50rem] w-full dark:bg-black bg-white dark:bg-dot-white/[0.2] bg-dot-black/[0.2] relative items-center justify-start">
         {/* Radial gradient for the container to give a faded look */}
         <div className="absolute pointer-events-none inset-0 flex items-center justify-center dark:bg-black bg-white [mask-image:radial-gradient(ellipse_at_center,transparent_20%,black)]"></div>
+
         <p className="w-[70%] h-[1000px] text-center text-4xl sm:text-7xl font-bold relative z-20 bg-clip-text text-transparent bg-black from-neutral-200 to-neutral-500 py-8">
-          spin: {spin}
+          x: {alpha}
         </p>
         <p className="w-[70%] h-[1000px] text-center text-4xl sm:text-7xl font-bold relative z-20 bg-clip-text text-transparent bg-black from-neutral-200 to-neutral-500 py-8">
-          a: {alpha}
+          y: {beta}
         </p>
-        <p className="w-[70%] h-[1000px] text-center text-4xl sm:text-7xl font-bold relative z-20 bg-clip-text text-transparent bg-black from-neutral-200 to-neutral-500 py-8">
-          b: {beta}
-        </p>
-        <p className="w-[70%] h-[1000px] text-center text-4xl sm:text-7xl font-bold relative z-20 bg-clip-text text-transparent bg-black from-neutral-200 to-neutral-500 py-8">
-          g: {gamma}
-        </p>
+
         <CardContainer className="inter-var" a={alpha} b={beta} g={gamma}>
           <CardBody className="bg-gray-50 relative group/card  dark:hover:shadow-2xl dark:hover:shadow-emerald-500/[0.1] dark:bg-black dark:border-white/[0.2] border-black/[0.1] w-auto sm:w-[30rem] h-auto rounded-xl p-6 border  ">
             <CardItem
