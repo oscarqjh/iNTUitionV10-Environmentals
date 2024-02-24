@@ -37,40 +37,40 @@ export const CardContainer = ({
   //   return () => cancelAnimationFrame(requestRef.current);
   // }, []);
 
-  useEffect(() => {
-    function handleOrientation(event) {
-      if (!containerRef.current) return;
-      // those angles are in degrees
-      var alpha = event.alpha;
-      var beta = event.beta;
-      var gamma = event.gamma;
+  // useEffect(() => {
+  //   function handleOrientation(event) {
+  //     if (!containerRef.current) return;
+  //     // those angles are in degrees
+  //     var alpha = event.alpha;
+  //     var beta = event.beta;
+  //     var gamma = event.gamma;
 
-      // JS math works in radians
-      var alphaR = (alpha / 180) * Math.PI;
-      var betaR = (beta / 180) * Math.PI;
-      var gammaR = (gamma / 180) * Math.PI;
-      var spinR = Math.atan2(
-        Math.cos(betaR) * Math.sin(gammaR),
-        Math.sin(betaR)
-      );
+  //     // JS math works in radians
+  //     var alphaR = (alpha / 180) * Math.PI;
+  //     var betaR = (beta / 180) * Math.PI;
+  //     var gammaR = (gamma / 180) * Math.PI;
+  //     var spinR = Math.atan2(
+  //       Math.cos(betaR) * Math.sin(gammaR),
+  //       Math.sin(betaR)
+  //     );
 
-      // convert back to degrees
-      var spin = (spinR * 180) / Math.PI;
+  //     // convert back to degrees
+  //     var spin = (spinR * 180) / Math.PI;
 
-      const x = clamp(Math.floor(gamma), -10, 10);
-      const y = clamp(Math.floor(beta - 45), -10, 10);
+  //     const x = clamp(Math.floor(gamma), -10, 10);
+  //     const y = clamp(Math.floor(beta - 45), -10, 10);
 
-      containerRef.current.style.transform = `rotateY(${y}deg) rotateX(${x}deg)`;
-    }
-    if (!initialised) {
-      setInitialised(true);
+  //     containerRef.current.style.transform = `rotateY(${y}deg) rotateX(${x}deg)`;
+  //   }
+  //   if (!initialised) {
+  //     setInitialised(true);
 
-      window.addEventListener("deviceorientation", handleOrientation, true);
-    }
-    return () => {
-      window.removeEventListener("deviceorientation", handleOrientation, true);
-    };
-  }, []);
+  //     window.addEventListener("deviceorientation", handleOrientation, true);
+  //   }
+  //   return () => {
+  //     window.removeEventListener("deviceorientation", handleOrientation, true);
+  //   };
+  // }, []);
 
   const handleMouseMove = (e) => {
     if (!containerRef.current) return;
@@ -115,7 +115,7 @@ export const CardContainer = ({
             transformStyle: "preserve-3d",
           }}
         >
-          {children} test {animateX} {animateY}
+          {children}
         </div>
       </div>
     </MouseEnterContext.Provider>
