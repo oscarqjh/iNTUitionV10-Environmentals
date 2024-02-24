@@ -75,7 +75,7 @@ const getAllUsers = (req, res) => {
 };
 
 const getUserByEmail = (req, res) => {
-  User.find()
+  User.findOne({ userEmail: req.params.email })
       .then((found) => {
       res.send(found);
       })
