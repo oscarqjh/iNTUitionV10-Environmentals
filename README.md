@@ -31,7 +31,7 @@
 ---
 
 ## Inspiration
-Our inspiration for Environmentals came from our shared passion for environmental conservation and our love for gaming. We wanted to create a fun and engaging way for people to learn about recycling while also enjoying the excitement of collecting virtual pets.
+Our inspiration for Environmentals came from our shared passion for environmental conservation and our love for gaming. We wanted to create a fun and engaging way for people to learn about recycling while also enjoying the excitement of collecting virtual pets. To raise awareness for recycling initiatives in Singapore, we are gamifying the recycling process to incentivise Singaporeans through the collection of pet avatars. Being an aggregator platform for initiatives such as SGRecycle, RecycleNSave and ALBA E-waste, we are adding a layer of fun and excitement to the process of recycling, with game-like mechanisms such as Pet avatar collection, Gacha and progress quests. Characters are generated using pre-trained LoRA on SD1.5 model, and users have a small chance to generate their own pet avatars if they are lucky in the Gacha.
 
 ## What it does
 Environmentals is a monster-collecting game where players can gather virtual pets, known as Environmentals, by actively participating in recycling activities. The more users recycle, the stronger their pets become, creating a rewarding experience for players while promoting eco-friendly behavior.
