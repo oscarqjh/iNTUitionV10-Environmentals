@@ -12,6 +12,7 @@ import LoginPage from "./routes/LoginPage/LoginPage.jsx";
 import ProtectedLayout from "./layouts/ProtectedLayout.jsx";
 import HomePage from "./routes/HomePage/HomePage.jsx";
 import ErrorPage from "./routes/ErrorPage/ErrorPage.jsx";
+import CollectionsPage from "./routes/CollectionsPage/CollectionsPage";
 
 const router = createBrowserRouter([
   {
@@ -29,6 +30,10 @@ const router = createBrowserRouter([
           {
             path: "/home",
             element: <HomePage />,
+          },
+          {
+            path: "/collections",
+            element: <CollectionsPage />,
           },
         ],
       },
