@@ -32,7 +32,15 @@ const getByGmail = async (email) => {
  * @returns {Promise}
  */
 const verifyRecycleOtp = async (otp) => {
-  return http.post('/otp/verifyRecycleOtp', { recycleOtp: otp });
+  return http.post("/otp/verifyRecycleOtp", { recycleOtp: otp });
+};
+
+const updateUser = async (data) => {
+  const newData = {
+    email: data.userEmail,
+    userData: data,
+  };
+  return http.put("/users/updateUser", newData);
 };
 
 const DatabaseAPIService = {
@@ -40,6 +48,7 @@ const DatabaseAPIService = {
   addUser,
   getByGmail,
   verifyRecycleOtp,
+  updateUser,
 };
 
 export default DatabaseAPIService;

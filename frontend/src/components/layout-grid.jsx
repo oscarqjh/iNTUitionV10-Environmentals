@@ -50,7 +50,12 @@ export const LayoutGrid = ({ cards, range, userCollections }) => {
             )}
             layout
           >
-            {selected?.id === card.id && <SelectedCard selected={selected} />}
+            {selected?.id === card.id && (
+              <SelectedCard
+                selected={selected}
+                userCollections={userCollections}
+              />
+            )}
             <BlurImage card={card} />
           </motion.div>
         </div>
@@ -82,7 +87,7 @@ const BlurImage = ({ card }) => {
   );
 };
 
-const SelectedCard = ({ selected }) => {
+const SelectedCard = ({ selected, userCollections }) => {
   return (
     <div className="bg-transparent h-full w-full flex flex-col justify-end rounded-lg shadow-2xl relative z-[60]">
       <motion.div
@@ -115,6 +120,14 @@ const SelectedCard = ({ selected }) => {
             element={selected.element}
             rarity={selected.rarity}
             description={selected.description}
+            owned={
+              userCollections[selected.id - 1]
+                ? userCollections[selected.id - 1].count > 0
+                  ? false
+                  : true
+                : false
+            }
+            id={selected.id}
           />
         ) : null}
       </motion.div>
