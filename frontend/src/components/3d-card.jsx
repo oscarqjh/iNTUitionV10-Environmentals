@@ -21,21 +21,21 @@ export const CardContainer = ({
   const containerRef = useRef(null);
   const [isMouseEntered, setIsMouseEntered] = useState(false);
   const [initialised, setInitialised] = useState(false);
-  const [x, setX] = useState(0);
-  const [y, setY] = useState(0);
-  const requestRef = useRef();
+  // const [x, setX] = useState(0);
+  // const [y, setY] = useState(0);
+  // const requestRef = useRef();
 
-  const animate = () => {
-    if (!containerRef.current) return;
-    containerRef.current.style.transform = `rotateY(${animateY}deg) rotateX(${animateX}deg)`;
-    console.log(animateX, animateY);
-    requestRef.current = requestAnimationFrame(animate);
-  };
+  // const animate = () => {
+  //   if (!containerRef.current) return;
+  //   containerRef.current.style.transform = `rotateY(${animateY}deg) rotateX(${animateX}deg)`;
+  //   console.log(animateX, animateY);
+  //   requestRef.current = requestAnimationFrame(animate);
+  // };
 
-  useEffect(() => {
-    requestRef.current = requestAnimationFrame(animate);
-    return () => cancelAnimationFrame(requestRef.current);
-  }, []);
+  // useEffect(() => {
+  //   requestRef.current = requestAnimationFrame(animate);
+  //   return () => cancelAnimationFrame(requestRef.current);
+  // }, []);
 
   useEffect(() => {
     function handleOrientation(event) {
@@ -59,9 +59,8 @@ export const CardContainer = ({
 
       const x = clamp(Math.floor(gamma), -10, 10);
       const y = clamp(Math.floor(beta - 45), -10, 10);
-      setX(x);
-      setY(y);
-      containerRef.current.style.transform = `rotateY(${animateY}deg) rotateX(${animateY}deg)`;
+
+      containerRef.current.style.transform = `rotateY(${y}deg) rotateX(${x}deg)`;
     }
     if (!initialised) {
       setInitialised(true);
