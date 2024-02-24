@@ -2,6 +2,7 @@
 import React, { useState, useRef, useEffect } from "react";
 import { motion } from "framer-motion";
 import { cn } from "@/lib/utils";
+import SkeletonOne from "./SkeletonOne";
 
 export const LayoutGrid = ({ cards, range }) => {
   const [selected, setSelected] = useState();
@@ -37,7 +38,8 @@ export const LayoutGrid = ({ cards, range }) => {
                 ? "rounded-md cursor-pointer fixed inset-0 h-1/2 w-[80vw] md:w-1/2 m-auto z-50 flex justify-center items-center flex-wrap flex-col"
                 : lastSelected?.id === card.id
                 ? "z-40 bg-white rounded-sm h-[10rem] w-[10rem]"
-                : "bg-white rounded-sm h-[10rem] w-[10rem]"
+                : "bg-white rounded-sm h-[10rem] w-[10rem]",
+              "grayscale"
             )}
             layout
           >
@@ -100,7 +102,9 @@ const SelectedCard = ({ selected }) => {
         }}
         className="relative px-8 pb-4 z-[70]"
       >
-        {selected?.content}
+        {selected ? (
+          <SkeletonOne element={selected.element} rarity={selected.rarity} />
+        ) : null}
       </motion.div>
     </div>
   );
