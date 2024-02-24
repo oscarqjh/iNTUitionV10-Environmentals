@@ -1,6 +1,5 @@
 import express from "express";
 import { RecycleOtp } from "../model/recycleOtp.js";
-import {  } from "./recyclesRouter.js";
 
 const RecycleOtpRouter = express.Router();
 
