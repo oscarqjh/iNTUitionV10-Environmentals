@@ -128,14 +128,19 @@ export default function CollectionsPage() {
                 <PaginationItem>
                   <PaginationPrevious
                     href={`#${
-                      location.hash.split("#")[1] - 1 < 0
-                        ? 2
-                        : (location.hash.split("#")[1] - 1) % 3
+                      location.hash
+                        ? location.hash.split("#")[1] - 1 < 0
+                          ? 2
+                          : (location.hash.split("#")[1] - 1) % 3
+                        : 2
                     }`}
                   />
                 </PaginationItem>
                 <PaginationItem>
-                  <PaginationLink href="#0" isActive={location.hash === "#0"}>
+                  <PaginationLink
+                    href="#0"
+                    isActive={location.hash ? location.hash === "#0" : true}
+                  >
                     1
                   </PaginationLink>
                 </PaginationItem>
@@ -151,7 +156,9 @@ export default function CollectionsPage() {
                 </PaginationItem>
                 <PaginationItem>
                   <PaginationNext
-                    href={`#${(location.hash.split("#")[1] + 1) % 3}`}
+                    href={`#${
+                      location.hash ? (location.hash.split("#")[1] + 1) % 3 : 1
+                    }`}
                   />
                 </PaginationItem>
               </PaginationContent>
