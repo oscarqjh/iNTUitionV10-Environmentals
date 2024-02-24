@@ -1,22 +1,29 @@
 import express from "express";
-import * as usersController from  "../controllers/usersController.js";
+import * as usersController from "../controllers/usersController.js";
 
 const UsersRouter = express.Router();
 
-
 UsersRouter.get("/getAllUsers", usersController.getAllUsers);
 
-UsersRouter.get("/getUserByEmail", usersController.getUserByEmail);
+UsersRouter.get("/getUserByEmail/:email", usersController.getUserByEmail);
 
 UsersRouter.post("/addUsers", usersController.createUser);
 
+UsersRouter.put("/updateUser", usersController.updateUser);
+
 UsersRouter.post("/userChangeEnvironmental", usersController.changeEquippedEnvironmental);
 
-UsersRouter.post("/updateEnvironmentalsCollections", usersController.updateEnvironmentalsCollections);
+UsersRouter.post(
+  "/updateEnvironmentalsCollections",
+  usersController.updateEnvironmentalsCollections
+);
 
-UsersRouter.get("/:id/EnvironmentalsCollections", usersController.getEnvironmentalsCollections);
+UsersRouter.get(
+  "/:id/EnvironmentalsCollections",
+  usersController.getEnvironmentalsCollections
+);
 
-// Discontinued
+// Deprecated
 // UsersRouter.get("/getTotalBottles", usersController.getTotalBottles);
 // UsersRouter.get("/getTotalLevels", usersController.getTotalLevels);
 

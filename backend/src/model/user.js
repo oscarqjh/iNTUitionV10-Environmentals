@@ -22,6 +22,10 @@ const dataSchema = new mongoose.Schema({
     type: String,
     default: "-1",
   },
+  tickets: {
+    type: Number,
+    default: 0,
+  },
   createdAt: {
     type: Date,
     default: Date.now,
@@ -53,6 +57,11 @@ const dataSchema = new mongoose.Schema({
       {environmentalDefaultId: 18, count: 0},
       {environmentalDefaultId: 19, count: 0},
       {environmentalDefaultId: 20, count: 0},
+      {environmentalDefaultId: 21, count: 0},
+      {environmentalDefaultId: 22, count: 0},
+      {environmentalDefaultId: 23, count: 0},
+      {environmentalDefaultId: 24, count: 0},
+      {environmentalDefaultId: 25, count: 0},
     ],
   },
 });

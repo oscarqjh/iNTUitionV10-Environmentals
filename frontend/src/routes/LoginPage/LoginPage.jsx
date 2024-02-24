@@ -8,20 +8,26 @@ import { Spotlight } from "@/components/spotlight";
 import { TextGenerateEffect } from "@/components/text-generate-effect";
 
 export default function LoginPage() {
-  const { user, login, logout } = useAuth();
+  const { user, login, googleAuthLogin } = useAuth();
 
   //Google OAuth flow
   const googleLogin = useGoogleLogin({
     onSuccess: async (tokenResponse) => {
       try {
         const response = await GoogleAPIService.getGoogleData(tokenResponse);
-        console.log(response.data);
-        login({ user: response.data });
+        // console.log(response.data);
+        const userData = {
+          email: response.data.email,
+          name: response.data.name,
+        };
+        googleAuthLogin(userData);
       } catch (e) {
         console.log(e);
       }
     },
-    onError: () => {},
+    onError: (e) => {
+      console.log(e);
+    },
   });
 
   return (
