@@ -1,6 +1,6 @@
 "use client";
 import { cn, isMobileTablet } from "@/lib/utils";
-import { clamp } from "framer-motion";
+
 import React, {
   createContext,
   useState,
