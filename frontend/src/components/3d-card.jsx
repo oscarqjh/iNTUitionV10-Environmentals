@@ -12,7 +12,13 @@ import React, {
 
 const MouseEnterContext = createContext(undefined);
 
-export const CardContainer = ({ children, className, containerClassName }) => {
+export const CardContainer = ({
+  children,
+  className,
+  containerClassName,
+  animateX,
+  animateY,
+}) => {
   const containerRef = useRef(null);
   const [isMouseEntered, setIsMouseEntered] = useState(false);
   const [initialised, setInitialised] = useState(false);
@@ -22,7 +28,9 @@ export const CardContainer = ({ children, className, containerClassName }) => {
 
   const animate = () => {
     if (!containerRef.current) return;
-    containerRef.current.style.transform = `rotateY(${x}deg) rotateX(${y}deg)`;
+    containerRef.current.style.transform = `rotateY(${animateY}deg) rotateX(${animateX}deg)`;
+    console.log(animateX, animateY);
+    requestRef.current = requestAnimationFrame(animate);
   };
 
   useEffect(() => {
