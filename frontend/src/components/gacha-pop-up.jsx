@@ -61,8 +61,8 @@ export function DialogGacha(props) {
           <DialogTitle>
             {props.loading
               ? "???"
-              : cardData[props.imgIndex - 1]
-              ? cardData[props.imgIndex - 1].name
+              : cardData[props.imgIndex]
+              ? cardData[props.imgIndex].name
               : ""}
           </DialogTitle>
         </DialogFooter>
