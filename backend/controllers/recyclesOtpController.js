@@ -27,17 +27,16 @@ const generateRecycleOtp = (req, res) => {
 
 const verifyRecycleOtp = (req, res) => {
   try {
-    RecycleOtp.findOne({ recycleOtp: req.body.recycleOtp })
+    RecycleOtp.findOneAndDelete({ recycleOtp: req.body.recycleOtp })
       .then((result) => {
         res.send(result);
-        RecycleOtp.deleteOne({ recycleOtp: req.body.recycleOtp });
       })
       .catch((err) => {
         console.log(err);
         res.send(err.message);
       });
   } catch (err) {
-    console.log;
+    console.log(err);
   }
 };
 
