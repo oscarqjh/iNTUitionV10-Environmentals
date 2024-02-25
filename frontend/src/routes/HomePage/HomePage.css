@@ -3,3 +3,20 @@ div{
     text-align: center;
     justify-items: center;
 }
+
+h1{
+    font-family: 'Renegade';
+}
+
+h3{
+    font-family: 'Gamepaused';
+}
+
+h4{
+    font-family: 'Robobold';
+}
+
+.container {
+    max-height: 400vh; /* Adjust the maximum height as needed */
+    overflow-y: scroll;
+  }

@@ -74,3 +74,18 @@
     @apply bg-background text-foreground;
   }
 }
+
+@font-face {
+  font-family: 'Gamepaused';
+  src: local('Gamepaused'), url(./assets/fonts/Gamepaused.otf) format('opentype');
+}
+
+@font-face {
+  font-family: 'Monobold';
+  src: url('@/assets/fonts/Monobold.ttf') format('truetype');
+}
+
+@font-face {
+  font-family: 'Renegade';
+  src: url('@/assets/fonts/Renegade.ttf') format('truetype');
+}
