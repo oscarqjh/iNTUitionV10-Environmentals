@@ -11,11 +11,13 @@ import ticketIcon from "/ticket.svg";
 import DatabaseAPIService from "@/api/services/DatabaseAPIService";
 import { cardData } from "@/data/data";
 import { useAuth } from "@/hooks/AuthProvider";
+import { DialogGacha } from "@/components/gacha-pop-up";
 
 export default function GachaPage() {
-  const [otp, setOtp] = useState("");
   const [errorMessage, setErrorMessage] = useState("");
   const { user, setUser } = useAuth();
+  const [loading, setLoading] = useState(false);
+  const [imgIndex, setImgIndex] = useState(0);
 
   const gachaImages = [
     "/mons/earth_common_2.png",
@@ -27,6 +29,11 @@ export default function GachaPage() {
   ];
 
   const generateRandomRarity = async () => {
+    setLoading(true);
+    setTimeout(() => {
+      setLoading(false);
+    }, 3000);
+
     const rarity = {
       common: 0.7,
       threatened: 0.25,
@@ -56,7 +63,7 @@ export default function GachaPage() {
 
     const randomIndex = Math.floor(Math.random() * array.length);
 
-    // console.log(array[randomIndex].id + " has been selected!");
+    console.log(array[randomIndex].id + " has been selected!");
 
     // Update the user's collection
     const newUser = { ...user };
@@ -66,6 +73,7 @@ export default function GachaPage() {
     const response = await DatabaseAPIService.updateUser(newUser);
     setUser(response.data);
     console.log(response.data);
+    setImgIndex(array[randomIndex].id - 1);
   };
 
   return (
@@ -85,32 +93,20 @@ export default function GachaPage() {
             />
             <div className="pl-2">x {user.tickets}</div>
           </div>
-
-          <Button
-            disabled={user.tickets > 0 ? false : true}
-            onClick={generateRandomRarity}
+          <DialogGacha
             className="mt-4"
-          >
-            Open Pack
-          </Button>
+            onClick={generateRandomRarity}
+            disabled={user.tickets > 0 ? false : true}
+            loading={loading}
+            imgIndex={imgIndex}
+          />
         </div>
 
         <Separator className="my-8 w-[70vw]" />
 
         <div className="otp-wrapper flex flex-col items-center justify-center">
           <DialogOtp />
-          {/* <Label htmlFor="otp" className="mb-2">
-            Enter OTP
-          </Label>
-          <Input
-            id="otp"
-            className="w-[60vw] text-center"
-            placeholder="Enter here..."
-            onChange={(e) => setOtp(e.target.value)}
-          />
-          {errorMessage && <div className="text-red-500">{errorMessage}</div>} */}
         </div>
-        {/* <Button className="mt-4" onClick={handleVerifyOtp}>Redeem</Button> */}
       </div>
       <LabelBottomNavigation />
     </>
