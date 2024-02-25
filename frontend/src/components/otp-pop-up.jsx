@@ -21,17 +21,20 @@ export function DialogOtp() {
   const [recycleAmount, setRecycleAmount] = useState(0);
   const [newTickets, setNewTickets] = useState(0);
   const { user, setUser } = useAuth();
+  const [invalid, setInvalid] = useState(false);
 
   ring.register();
 
   const handleVerifyOtp = async () => {
+    setRecycleAmount(0);
+    setInvalid(false);
     setLoading(true);
     setTimeout(() => {
       setLoading(false);
     }, 3000);
     try {
       const response = await DatabaseAPIService.verifyRecycleOtp(otp);
-      if (response.status === 200) {
+      if (response.data) {
         // otp verification successful
         console.log("Otp verified successfully");
         console.log(response.data);
@@ -55,6 +58,10 @@ export function DialogOtp() {
       } else {
         // otp verification failed (Bad request === 400)
         console.log("Invalid OTP");
+        setInvalid(true);
+        setTimeout(() => {
+          setInvalid(false);
+        }, 5000);
         // setErrorMessage("Invalid OTP! Please try again.");
       }
     } catch (error) {
@@ -85,7 +92,6 @@ export function DialogOtp() {
             </Label>
             <Input
               id="name"
-              autocomplete={false}
               placeholder="Eg. 123456"
               onChange={(e) => setOtp(e.target.value)}
               className="placeholder:italic placeholder:text-slate-400 col-span-3"
@@ -107,6 +113,8 @@ export function DialogOtp() {
               speed="2"
               color="black"
             ></l-ring>
+          ) : invalid ? (
+            <div>Invalid OTP</div>
           ) : recycleAmount === 0 ? null : (
             <div>
               <p>You recycled {recycleAmount} bottles.</p>
@@ -114,7 +122,11 @@ export function DialogOtp() {
             </div>
           )}
 
-          <Button className="mb-4" onClick={handleVerifyOtp}>
+          <Button
+            disabled={otp === ""}
+            className="mb-4"
+            onClick={handleVerifyOtp}
+          >
             Submit
           </Button>
         </DialogFooter>
