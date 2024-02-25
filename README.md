@@ -18,8 +18,8 @@
 	<img src="https://img.shields.io/badge/Axios-5A29E4?style=flat-square&logo=axios&logoColor=white" alt="Axios">
 
 <div style="display: flex;">
-    <img src="./documents/Homepage.png" alt="Homepage" style="width: 50%;">
-    <img src="./documents/Environmentals.png" alt="Environmentals" style="width: 50%;">
+    <img src="./documents/Homepage.png" alt="Homepage" style="width: 40%;">
+    <img src="./documents/Environmentals.png" alt="Environmentals" style="width: 40%;">
 </div>
 
 
