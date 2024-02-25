@@ -97,38 +97,35 @@ export function DialogOtp() {
               className="placeholder:italic placeholder:text-slate-400 col-span-3"
             />
           </div>
-          <div className="grid grid-cols-4 items-center gap-4">
-            {/* <Label htmlFor="username" className="text-right">
-              Username
-            </Label>
-            <Input id="username" value="@peduarte" className="col-span-3" /> */}
-          </div>
+          <div className="grid grid-cols-4 items-center gap-4"></div>
         </div>
         <DialogFooter>
-          {loading ? (
-            <l-ring
-              size="40"
-              stroke="5"
-              bg-opacity="0"
-              speed="2"
-              color="black"
-            ></l-ring>
-          ) : invalid ? (
-            <div>Invalid OTP</div>
-          ) : recycleAmount === 0 ? null : (
-            <div>
-              <p>You recycled {recycleAmount} bottles.</p>
-              <p>You earned {newTickets} tickets!</p>
-            </div>
-          )}
+          <div className="flex flex-col">
+            {loading ? (
+              <l-ring
+                size="40"
+                stroke="5"
+                bg-opacity="0"
+                speed="2"
+                color="black"
+              ></l-ring>
+            ) : invalid ? (
+              <div className="mb-2">Invalid OTP</div>
+            ) : recycleAmount === 0 ? null : (
+              <div className="mb-2">
+                <p>You recycled {recycleAmount} bottles.</p>
+                <p>You earned {newTickets} tickets!</p>
+              </div>
+            )}
 
-          <Button
-            disabled={otp === ""}
-            className="mb-4"
-            onClick={handleVerifyOtp}
-          >
-            Submit
-          </Button>
+            <Button
+              disabled={otp === ""}
+              className="my-4"
+              onClick={handleVerifyOtp}
+            >
+              Submit
+            </Button>
+          </div>
         </DialogFooter>
       </DialogContent>
     </Dialog>
