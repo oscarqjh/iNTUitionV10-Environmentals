@@ -1,6 +1,6 @@
 import LabelBottomNavigation from "@/components/navbar/Navbar";
 import { TextGenerateEffect } from "@/components/text-generate-effect";
-import { Button } from "@/components/ui/button";
+import Box from "@mui/material/Box";
 // import { Input } from "@/components/ui/input";
 // import { Label } from "@/components/ui/label";
 import { Separator } from "@/components/ui/separator";
@@ -14,7 +14,7 @@ import { useAuth } from "@/hooks/AuthProvider";
 import { DialogGacha } from "@/components/gacha-pop-up";
 
 export default function GachaPage() {
-  const [errorMessage, setErrorMessage] = useState("");
+  // const [errorMessage, setErrorMessage] = useState("");
   const { user, setUser } = useAuth();
   const [loading, setLoading] = useState(false);
   const [imgIndex, setImgIndex] = useState(0);
@@ -78,7 +78,7 @@ export default function GachaPage() {
 
   return (
     <>
-      <div className="flex flex-col h-max w-screen min-h-[100vh] dark:bg-black bg-white dark:bg-dot-white/[0.2] bg-dot-black/[0.2] relative items-center justify-start">
+      <div className="flex flex-col h-max w-full min-h-[100vh] dark:bg-black bg-white dark:bg-dot-white/[0.2] bg-dot-black/[0.2] relative items-center justify-start">
         {/* Radial gradient for the container to give a faded look */}
         <div className="absolute pointer-events-none inset-0 flex items-center justify-center dark:bg-black bg-white [mask-image:radial-gradient(ellipse_at_center,transparent_0%,black)]"></div>
         <TextGenerateEffect words="Claim your Rewards!" />
@@ -108,6 +108,13 @@ export default function GachaPage() {
           <DialogOtp />
         </div>
       </div>
+      <Box
+            sx={{
+              visibility: "hidden",
+              border: "3px solid #ccc",
+              padding: "40px",
+            }}
+          ></Box>
       <LabelBottomNavigation />
     </>
   );

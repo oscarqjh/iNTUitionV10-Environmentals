@@ -12,7 +12,7 @@ export default function HomePage() {
     logout();
   };
 
-  const bottle = user.totalBottlesRecycled+1;
+  const bottle = user.totalBottlesRecycled;
   const bottlescollected = bottle % 5;
   const value = (bottlescollected / 5) * 100;
   const bottlestogo = 5 - bottlescollected;

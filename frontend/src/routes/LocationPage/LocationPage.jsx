@@ -8,7 +8,7 @@ const LocationPage = () => {
         <iframe 
           src="https://www.google.com/maps/d/embed?mid=1ySyBcuorBk9s4c59jRkJhceMATM3fF2b&ehbc=2E312F" 
           width="100%" 
-          height="91%"
+          height="88%"
         >  
         </iframe>
       
