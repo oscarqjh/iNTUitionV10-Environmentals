@@ -34,7 +34,7 @@ export default function CollectionsPage() {
     if (user) {
       setTotal(
         user.collections.reduce((acc, curr) => {
-          return curr.count > 0 ? acc + curr.count : acc;
+          return curr.count > 0 ? acc + 1 : acc;
         }, 0)
       );
     }

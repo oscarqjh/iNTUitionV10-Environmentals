@@ -276,6 +276,50 @@ const cardData = [
     description:
       "Spaddlefin, a whimsical water guardian, patrols the seas with a shell full of love, safeguarding marine neighbors with a splash of joy and determination.",
   },
+  {
+    id: 26,
+    content: <SkeletonOne />,
+    className: "col-span-1",
+    thumbnail: "/mons/special_endangered_1.png",
+    rarity: "endangered",
+    element: "fire",
+    name: "Infernothorn",
+    description:
+      "Infernothorn is a majestic dragon, exuding power and fire. Its fiery wings and blazing tail illuminate its fierce and awe-inspiring presence.",
+  },
+  {
+    id: 27,
+    content: <SkeletonOne />,
+    className: "col-span-1",
+    thumbnail: "/mons/special_endangered_2.png",
+    rarity: "endangered",
+    element: "earth",
+    name: "Crystaleon",
+    description:
+      "Crystaleon,  a mystical deer with crystal antlers and glowing runes, radiates ethereal beauty in a serene forest setting, embodying tranquility and enchantment in its presence.",
+  },
+  {
+    id: 28,
+    content: <SkeletonOne />,
+    className: "col-span-1",
+    thumbnail: "/mons/special_endangered_3.png",
+    rarity: "endangered",
+    element: "flying",
+    name: "Astralhowl",
+    description:
+      "AstrallHowl, a majestic fox-like creature with fiery wings and a divine aura, radiates enchantment and wisdom in a mystical forest setting, embodying awe-inspiring magic and grace.",
+  },
+  {
+    id: 29,
+    content: <SkeletonOne />,
+    className: "col-span-1",
+    thumbnail: "/mons/special_endangered_4.png",
+    rarity: "endangered",
+    element: "water",
+    name: "Splashzilla",
+    description:
+      "The legendary Splashzilla, known for its fierce splendor, commands the seas with a playful yet powerful presence, embodying the beauty and might of the ocean depths.",
+  },
 ];
 
 export { cardData };
