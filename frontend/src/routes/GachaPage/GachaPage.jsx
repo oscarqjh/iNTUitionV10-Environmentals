@@ -104,7 +104,7 @@ export default function GachaPage() {
 
         <Separator className="my-8 w-[70vw]" />
 
-        <div className="otp-wrapper flex flex-col items-center justify-center">
+        <div className="mb-[40vh] otp-wrapper flex flex-col items-center justify-center">
           <DialogOtp />
         </div>
       </div>
