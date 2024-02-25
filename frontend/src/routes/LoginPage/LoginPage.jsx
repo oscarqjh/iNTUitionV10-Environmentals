@@ -5,7 +5,7 @@ import GoogleAPIService from "../../api/services/GoogleAPIService";
 import { BackgroundGradientAnimation } from "@/components/background-gradient-animation";
 import { BackgroundBeams } from "@/components/background-beams";
 import { Spotlight } from "@/components/spotlight";
-import { TextGenerateEffect } from "@/components/text-generate-effect";
+import { TextGenerateEffect2 } from "@/components/text-generate-effect2";
 
 export default function LoginPage() {
   const { user, login, googleAuthLogin } = useAuth();
@@ -36,7 +36,7 @@ export default function LoginPage() {
         {/* Radial gradient for the container to give a faded look */}
         <div className="absolute pointer-events-none inset-0 flex items-center justify-center dark:bg-black bg-white [mask-image:radial-gradient(ellipse_at_center,transparent_20%,black)]"></div>
 
-        <TextGenerateEffect words="Welcome to Environmentals" />
+        <TextGenerateEffect2 words="Welcome to Environmentals" />
         <button
           onClick={googleLogin}
           className="px-4 py-2 border flex gap-2 border-slate-200 dark:border-slate-700 rounded-lg text-slate-700 dark:text-slate-200 hover:border-slate-400 dark:hover:border-slate-500 hover:opacity-80 hover:text-slate-700 dark:hover:text-slate-300 hover:shadow transition duration-150"

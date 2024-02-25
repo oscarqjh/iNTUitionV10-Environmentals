@@ -2,9 +2,8 @@
 import { useEffect } from "react";
 import { motion, stagger, useAnimate } from "framer-motion";
 import { cn } from "@/lib/utils";
-import './textgenerate.css'
 
-export const TextGenerateEffect = ({ words, className }) => {
+export const TextGenerateEffect2 = ({ words, className }) => {
   const [scope, animate] = useAnimate();
   let wordsArray = words.split(" ");
   useEffect(() => {
@@ -40,9 +39,9 @@ export const TextGenerateEffect = ({ words, className }) => {
   return (
     <div className={cn("font-bold w-[100%]", className)}>
       <div className="flex justify-center mt-4 mb-10 ">
-        <h1 className=" w-[70%] text-center text-4xl sm:text-7xl font-bold relative z-20 bg-clip-text text-transparent bg-black from-neutral-200 to-neutral-500 py-8 ">
+        <div className=" w-[70%] text-center text-4xl sm:text-7xl font-bold relative z-20 bg-clip-text text-transparent bg-black from-neutral-200 to-neutral-500 py-8 ">
           {renderWords()}
-        </h1>
+        </div>
       </div>
     </div>
   );
