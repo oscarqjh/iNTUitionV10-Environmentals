@@ -45,9 +45,9 @@ export default function HomePage() {
               padding: "10px",
             }}
           >
-            <h3 className="text-center text-3xl sm:text-7xl font-bold relative z-20 bg-clip-text text-transparent bg-black from-neutral-200 to-neutral-500 py-2">
+            <h1 className="text-center text-3xl sm:text-7xl font-bold relative z-20 bg-clip-text text-transparent bg-black from-neutral-200 to-neutral-500 py-2">
              Save the Environmentals!
-            </h3>
+            </h1>
 
             <h4 className="text-center-justify py-2">
               Recycle used plastic bottles or aluminium cans 
