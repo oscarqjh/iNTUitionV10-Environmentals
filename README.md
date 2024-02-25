@@ -17,7 +17,7 @@
 	<img src="https://img.shields.io/badge/MongoDB-4EA94B?style=flat-square&logo=mongodb&logoColor=white" alt="MongoDB">
 	<img src="https://img.shields.io/badge/Axios-5A29E4?style=flat-square&logo=axios&logoColor=white" alt="Axios">
 
-![Cover](./Documents/Diagrams/VIFitnessCover.png)
+![Cover](./Documents/Homepage.png)(./Documents/Environmentals.png)
 
 ### Team Members of BluTech:
 
