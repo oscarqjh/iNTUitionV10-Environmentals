@@ -22,16 +22,16 @@ export function CarouselPlugin({ images }) {
       onMouseEnter={plugin.current.stop}
       onMouseLeave={plugin.current.reset}
     >
-      <CarouselContent>
+      <CarouselContent className="h-[30%]">
         {images.map((image, index) => (
           <CarouselItem key={index}>
             <div className="p-1">
               <Card>
-                <CardContent className="flex aspect-square items-center justify-center p-6">
+                <CardContent className="flex aspect-square items-center justify-center p-3">
                   <img
                     src={image}
                     alt={`Image ${index + 1}`}
-                    className="max-w-full max-h-full"
+                    className="max-w-200 max-h-200"
                   />
                 </CardContent>
               </Card>
