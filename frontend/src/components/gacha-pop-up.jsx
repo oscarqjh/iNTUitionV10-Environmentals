@@ -36,7 +36,7 @@ export function DialogGacha(props) {
           Open Pack!
         </Button>
       </DialogTrigger>
-      <DialogContent className="w-[80%] rounded-sm justify-center">
+      <DialogContent className="w-[80%] max-h-[400px] max-w-[400px] rounded-sm justify-center">
         <DialogHeader>
           <DialogTitle>You got</DialogTitle>
         </DialogHeader>
@@ -47,7 +47,7 @@ export function DialogGacha(props) {
             </div>
           ) : (
             <img
-              className="w-[70vw] h-[70vw] rounded-lg border-4 border-stone-700 dark:border-slate-700"
+              className="w-[70vw] h-[70vw] max-h-[250px] max-w-[250px] rounded-lg border-4 border-stone-700 dark:border-slate-700"
               src={
                 cardData[props.imgIndex]
                   ? cardData[props.imgIndex].thumbnail
