@@ -42,7 +42,7 @@ export function DialogGacha(props) {
         </DialogHeader>
         <div className="grid gap-4 py-4">
           {props.loading ? (
-            <div className="flex justify-center items-center w-[70vw] h-[70vw] rounded-lg border-4 border-stone-700 dark:border-slate-700">
+            <div className="flex justify-center items-center w-[70vw] h-[70vw] max-h-[250px] max-w-[250px] rounded-lg border-4 border-stone-700 dark:border-slate-700">
               <l-quantum size="45" speed="1.75" color="black"></l-quantum>
             </div>
           ) : (
