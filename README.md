@@ -61,3 +61,5 @@ In the future, we plan to expand Environmentals with additional features such as
 
 ## iNTUition v10.0
 
+This project won 3rd place and was submitted to Devpost for the annual flagship hackathon of IEEE NTU.   
+[Find the Submission here!](https://devpost.com/software/enviromentals)
