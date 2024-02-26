@@ -41,6 +41,8 @@ const verifyRecycleOtp = async (otp) => {
 /**
  * Update user
  * @param {object} data
+ * @param {string} data.userEmail
+ * @param {object} data.userData
  * @returns {Promise}
  */
 const updateUser = async (data) => {
@@ -51,6 +53,11 @@ const updateUser = async (data) => {
   return http.put("/users/updateUser", newData);
 };
 
+/**
+ * Generate recycle otp
+ * @param {object} data
+ * @returns {Promise}
+ */
 const generateRecycleOtp = async (data) => {
   return http.post("/otp/generateRecycleOtp", data);
 };
